@@ -1,0 +1,6 @@
+SaludComprasBundle:
+    resource: "@SaludComprasBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+
