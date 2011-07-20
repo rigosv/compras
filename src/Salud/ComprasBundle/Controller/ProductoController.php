@@ -28,6 +28,13 @@ class ProductoController extends Controller
      * @Template()
      */
     public function showAction($id) {
+        $em = $this->getDoctrine()->getEntityManager();
         
+        $producto = $em->find("SaludComprasBundle:Item", $id);
+        // Estas formas son equivalentes
+        //$producto = $em->getRepository("SaludComprasBundle:Item")->find($id);
+        //$producto = $em->getRepository("Salud\ComprasBundle\Entity\Item")->find($id);
+        
+        return array('producto'=>$producto);
     }
 }
