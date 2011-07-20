@@ -27,7 +27,7 @@ class ProductoController extends Controller
      * @Route("/producto/show/{id}", name="_productoShow")
      * @Template()
      */
-    public function showAction($idparam) {
+    public function showAction($id) {
         
     }
 }

@@ -112,7 +112,7 @@ abstract class Kernel implements KernelInterface
     protected $startTime;
     protected $classes;
 
-    const VERSION = '2.0.0-RC3';
+    const VERSION = '2.0.0-RC5-DEV';
 
     
     public function __construct($environment, $debug)
@@ -733,6 +733,8 @@ class HttpCache implements HttpKernelInterface
             }
         }
 
+        $response->prepare();
+
         return $response;
     }
 
@@ -1008,10 +1010,6 @@ class HttpCache implements HttpKernelInterface
         }
 
         $response->headers->remove('X-Body-File');
-
-        if (!$response->headers->has('Transfer-Encoding')) {
-            $response->headers->set('Content-Length', strlen($response->getContent()));
-        }
     }
 
     protected function processResponseBody(Request $request, Response $response)
@@ -1798,6 +1796,10 @@ class ServerBag extends ParameterBag
             }
         }
 
+                if (isset($this->parameters['PHP_AUTH_USER'])) {
+            $headers['Authorization'] = 'Basic '.base64_encode($this->parameters['PHP_AUTH_USER'].':'.$this->parameters['PHP_AUTH_PW']);
+        }
+
         return $headers;
     }
 }
@@ -1813,14 +1815,12 @@ namespace Symfony\Component\HttpFoundation
 class HeaderBag
 {
     protected $headers;
-    protected $cookies;
     protected $cacheControl;
 
     
     public function __construct(array $headers = array())
     {
         $this->cacheControl = array();
-        $this->cookies = array();
         $this->headers = array();
         foreach ($headers as $key => $values) {
             $this->set($key, $values);
@@ -1835,7 +1835,7 @@ class HeaderBag
         }
 
         $beautifier = function ($name) {
-            return preg_replace('/\-(.)/e', "'-'.strtoupper('\\1')", ucfirst($name));
+            return preg_replace_callback('/\-(.)/', function ($match) { return '-'.strtoupper($match[1]); }, ucfirst($name));
         };
 
         $max = max(array_map('strlen', array_keys($this->headers))) + 1;
@@ -1940,40 +1940,6 @@ class HeaderBag
     }
 
     
-    public function setCookie(Cookie $cookie)
-    {
-        $this->cookies[$cookie->getName()] = $cookie;
-    }
-
-    
-    public function removeCookie($name)
-    {
-        unset($this->cookies[$name]);
-    }
-
-    
-    public function hasCookie($name)
-    {
-        return isset($this->cookies[$name]);
-    }
-
-    
-    public function getCookie($name)
-    {
-        if (!$this->hasCookie($name)) {
-            throw new \InvalidArgumentException(sprintf('There is no cookie with name "%s".', $name));
-        }
-
-        return $this->cookies[$name];
-    }
-
-    
-    public function getCookies()
-    {
-        return $this->cookies;
-    }
-
-    
     public function getDate($key, \DateTime $default = null)
     {
         if (null === $value = $this->get($key)) {
@@ -2055,6 +2021,8 @@ use Symfony\Component\HttpFoundation\SessionStorage\NativeSessionStorage;
 
 class Request
 {
+    static protected $trustProxy = false;
+
     
     public $attributes;
 
@@ -2169,6 +2137,10 @@ class Request
             $defaults['SERVER_PORT'] = $components['port'];
             $defaults['HTTP_HOST'] = $defaults['HTTP_HOST'].':'.$components['port'];
         }
+        
+        if (!isset($components['path'])) {
+            $components['path'] = '';
+        }
 
         if (in_array(strtoupper($method), array('POST', 'PUT', 'DELETE'))) {
             $request = $parameters;
@@ -2281,6 +2253,12 @@ class Request
     }
 
     
+    static public function trustProxyData()
+    {
+        self::$trustProxy = true;
+    }
+
+    
     public function get($key, $default = null, $deep = false)
     {
         return $this->query->get($key, $this->attributes->get($key, $this->request->get($key, $default, $deep), $deep), $deep);
@@ -2316,7 +2294,7 @@ class Request
         if ($proxy) {
             if ($this->server->has('HTTP_CLIENT_IP')) {
                 return $this->server->get('HTTP_CLIENT_IP');
-            } elseif ($this->server->has('HTTP_X_FORWARDED_FOR')) {
+            } elseif (self::$trustProxy && $this->server->has('HTTP_X_FORWARDED_FOR')) {
                 return $this->server->get('HTTP_X_FORWARDED_FOR');
             }
         }
@@ -2443,16 +2421,16 @@ class Request
         return (
             (strtolower($this->server->get('HTTPS')) == 'on' || $this->server->get('HTTPS') == 1)
             ||
-            (strtolower($this->headers->get('SSL_HTTPS')) == 'on' || $this->headers->get('SSL_HTTPS') == 1)
+            (self::$trustProxy && strtolower($this->headers->get('SSL_HTTPS')) == 'on' || $this->headers->get('SSL_HTTPS') == 1)
             ||
-            (strtolower($this->headers->get('X_FORWARDED_PROTO')) == 'https')
+            (self::$trustProxy && strtolower($this->headers->get('X_FORWARDED_PROTO')) == 'https')
         );
     }
 
     
     public function getHost()
     {
-        if ($host = $this->headers->get('X_FORWARDED_HOST')) {
+        if (self::$trustProxy && $host = $this->headers->get('X_FORWARDED_HOST')) {
             $elements = explode(',', $host);
 
             $host = trim($elements[count($elements) - 1]);
@@ -2869,7 +2847,11 @@ namespace Symfony\Component\HttpFoundation
 
 class ResponseHeaderBag extends HeaderBag
 {
+    const COOKIES_FLAT  = 'flat';
+    const COOKIES_ARRAY = 'array';
+
     protected $computedCacheControl = array();
+    protected $cookies              = array();
 
     
     public function __construct(array $headers = array())
@@ -2885,7 +2867,7 @@ class ResponseHeaderBag extends HeaderBag
     public function __toString()
     {
         $cookies = '';
-        foreach ($this->cookies as $cookie) {
+        foreach ($this->getCookies() as $cookie) {
             $cookies .= 'Set-Cookie: '.$cookie."\r\n";
         }
 
@@ -2934,6 +2916,49 @@ class ResponseHeaderBag extends HeaderBag
     public function getCacheControlDirective($key)
     {
         return array_key_exists($key, $this->computedCacheControl) ? $this->computedCacheControl[$key] : null;
+    }
+
+    
+    public function setCookie(Cookie $cookie)
+    {
+        $this->cookies[$cookie->getDomain()][$cookie->getPath()][$cookie->getName()] = $cookie;
+    }
+
+    
+    public function removeCookie($name, $path = null, $domain = null)
+    {
+        unset($this->cookies[$domain][$path][$name]);
+
+        if (empty($this->cookies[$domain][$path])) {
+            unset($this->cookies[$domain][$path]);
+
+            if (empty($this->cookies[$domain])) {
+                unset($this->cookies[$domain]);
+            }
+        }
+    }
+
+    
+    public function getCookies($format = self::COOKIES_FLAT)
+    {
+        if (!in_array($format, array(self::COOKIES_FLAT, self::COOKIES_ARRAY))) {
+            throw new \InvalidArgumentException(sprintf('Format "%s" invalid (%s).', $format, implode(', ', array(self::COOKIES_FLAT, self::COOKIES_ARRAY))));
+        }
+
+        if (self::COOKIES_ARRAY === $format) {
+            return $this->cookies;
+        }
+
+        $flattenedCookies = array();
+        foreach ($this->cookies as $path) {
+            foreach ($path as $cookies) {
+                foreach ($cookies as $cookie) {
+                    $flattenedCookies[] = $cookie;
+                }
+            }
+        }
+
+        return $flattenedCookies;
     }
 
     
@@ -3044,7 +3069,7 @@ class Response
     
     public function __toString()
     {
-        $this->fixContentType();
+        $this->prepare();
 
         return
             sprintf('HTTP/%s %s %s', $this->version, $this->statusCode, $this->statusText)."\r\n".
@@ -3059,9 +3084,34 @@ class Response
     }
 
     
+    public function prepare()
+    {
+        if ($this->isInformational() || in_array($this->statusCode, array(204, 304))) {
+            $this->setContent('');
+        }
+
+                $charset = $this->charset ?: 'UTF-8';
+        if (!$this->headers->has('Content-Type')) {
+            $this->headers->set('Content-Type', 'text/html; charset='.$charset);
+        } elseif ('text/' === substr($this->headers->get('Content-Type'), 0, 5) && false === strpos($this->headers->get('Content-Type'), 'charset')) {
+                        $this->headers->set('Content-Type', $this->headers->get('Content-Type').'; charset='.$charset);
+        }
+
+                if ($this->headers->has('Transfer-Encoding')) {
+            $this->headers->remove('Content-Length');
+        } elseif (!$this->headers->has('Content-Length')) {
+            $this->headers->set('Content-Length', strlen($this->content));
+        }
+    }
+
+    
     public function sendHeaders()
     {
-        $this->fixContentType();
+                if (headers_sent()) {
+            return;
+        }
+
+        $this->prepare();
 
                 header(sprintf('HTTP/%s %s %s', $this->version, $this->statusCode, $this->statusText));
 
@@ -3480,16 +3530,6 @@ class Response
     public function isEmpty()
     {
         return in_array($this->statusCode, array(201, 204, 304));
-    }
-
-    protected function fixContentType()
-    {
-        $charset = $this->charset ?: 'UTF-8';
-        if (!$this->headers->has('Content-Type')) {
-            $this->headers->set('Content-Type', 'text/html; charset='.$charset);
-        } elseif ('text/' === substr($this->headers->get('Content-Type'), 0, 5) && false === strpos($this->headers->get('Content-Type'), 'charset')) {
-                        $this->headers->set('Content-Type', $this->headers->get('Content-Type').'; charset='.$charset);
-        }
     }
 }
 }
