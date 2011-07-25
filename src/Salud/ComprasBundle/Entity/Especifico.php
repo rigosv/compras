@@ -147,4 +147,8 @@ class Especifico
     {
         return $this->idRubro;
     }
+    
+    public function __toString(){
+        return '('.$this->codigoespecifico .') ' .$this->descripcionespecifico;
+    }
 }

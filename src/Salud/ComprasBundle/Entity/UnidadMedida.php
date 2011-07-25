@@ -87,4 +87,8 @@ class UnidadMedida
     {
         return $this->descripcionunidadmedida;
     }
+    
+    public function __toString() {
+        return $this->descripcionunidadmedida;
+    }
 }

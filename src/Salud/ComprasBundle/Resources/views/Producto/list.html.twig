@@ -5,12 +5,17 @@
 <table class="listado">
    {% for producto in productos%}
     <tr>
-        <td><A href="{{ path("_productoShow", {'id': producto.id}) }}">
+        <td><A href="{{ path("_producto_show", {'id': producto.id}) }}">
                 {{producto.descripcionitem}}
             </a>
         </td>
         <td>{{producto.preciounitario}}</td>
         <td>{{producto.idEspecifico.codigoespecifico}}</td>
+        <TD>
+		   <A href='{{ path('_producto_edit', {'id': producto.id}) }}'> 
+			EDITAR
+		   </A>
+            </td>
     </tr>
    {% endfor %}
 </table>

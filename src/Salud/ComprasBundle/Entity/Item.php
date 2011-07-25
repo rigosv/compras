@@ -4,6 +4,8 @@ namespace Salud\ComprasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Salud\ComprasBundle\Entity\Item
  *
@@ -47,6 +49,9 @@ class Item
      * @var decimal $preciounitario
      *
      * @ORM\Column(name="preciounitario", type="decimal", nullable=true)
+     * 
+     * @Assert\NotBlank(message="Ingrese un valor")
+     * @Assert\Min(limit="0", message="No puede ser menor que cero")
      */
     private $preciounitario;
 
