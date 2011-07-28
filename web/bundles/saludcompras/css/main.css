@@ -107,6 +107,17 @@ ul li
     padding: 30px 30px 20px 30px;
 }
 
+#logo-site
+{
+    position: fixed;
+    left: 0;
+    padding: 70px 0px 30px 0px;
+    -webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	rotation: -45deg;
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-0.5);
+}
+
 #symfony-wrapper
 {
     width:  970px;
@@ -123,6 +134,7 @@ ul li
     border-radius:              16px;
     margin-bottom:              20px;
     word-wrap:                  break-word;
+    border: 1px solid black;
 }
 
 #symfony-search
@@ -271,7 +283,7 @@ input[type=text], input[type=password]
     color: red;
 }
 
-#login label, #contact_form label
+#login label
 {
     display: block;
     float: left;
@@ -290,4 +302,37 @@ ul#menu
     padding-left: 0;
     margin-right: 10px;
     display: inline;
+}
+
+.form_row
+{
+    padding: 10px 10px 10px 10px;
+}
+
+.form_row label
+{
+    display: block;
+    float: left;
+    width: 150px;
+}
+
+input[type=submit]
+{
+    font-weight:   bold;
+    color:         black;
+    /* Font is duplicated of body (sans-serif) */
+    font-family:      "Lucida Sans Unicode", "Lucida Grande", Verdana, Arial, Helvetica, sans-serif;
+
+    margin-bottom:    10px;
+    background-color: #aacd4e;
+    padding:          2px 4px;
+    display:          inline-block;
+    text-transform:   uppercase;
+
+}
+
+input[type=submit]:hover
+{
+    
+    background-color: #C3DA85;
 }

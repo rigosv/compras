@@ -1,11 +1,17 @@
 {# src/Salud/ComprasBundle/Resources/views/Producto/edit.html.twig #}
 {% extends 'SaludComprasBundle::layout.html.twig' %}
 
+{% block stylesheets%}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/saludcompras/css/producto.css') }}" type="text/css" media="all" />
+{% endblock %}
+
 {% block content %}
-  <form action="{{ producto.id? path('_producto_edit', {'id':producto.id}):
+    <h1>Gestión de productos</h1>
+<form action="{{ producto.id? path('_producto_edit', {'id':producto.id}):
                    path("_producto_create") }}" 
-        method="post" {{ form_enctype(form) }}>
-    {{ form_widget(form) }}
-    <input type="submit" />
-  </form>
+      method="post" {{ form_enctype(form) }}>
+    {{ form_widget(form)}}
+    <input type="submit" VALUE="Enviar" />
+</form>
 {% endblock %}

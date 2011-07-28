@@ -1,5 +1,11 @@
 {# src/Salud/ComprasBundle/Resources/views/Producto/list.html.twig #}
 {% extends 'SaludComprasBundle::layout.html.twig'%}
+
+{% block stylesheets%}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/saludcompras/css/list.css') }}" type="text/css" media="all" />
+{% endblock %}
+    
 {% block content%}
 <h1>Listado de productos</h1>
 <table class="listado">

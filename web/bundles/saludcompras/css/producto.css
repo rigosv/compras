@@ -1,0 +1,22 @@
+/* 
+    Document   : producto
+    Created on : May 17, 2011, 9:06:04 AM
+    Author     : rigo
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#salud_comprasbundle_itemtype_idEspecifico, 
+#salud_comprasbundle_itemtype_idEspecificoOnu
+{
+    width: 80%;
+}
