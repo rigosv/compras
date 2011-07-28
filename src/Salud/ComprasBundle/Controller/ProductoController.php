@@ -51,7 +51,7 @@ class ProductoController extends Controller {
         if (isset($id)) {
             $producto = $em->find('SaludComprasBundle:Item', $id);
             if (!$producto)
-                throw new \Symfony\Component\HttpKernel\Exception\NotFoundHttpException("Producto no encontrado");
+                throw $this->createNotFoundException ("Producto no encontrado");
         }
         else
             $producto = new Item();

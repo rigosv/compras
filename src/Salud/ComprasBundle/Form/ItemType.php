@@ -17,9 +17,37 @@ class ItemType extends AbstractType
                                             'currency'=> 'USD'))
             ->add('bloqueado', 'checkbox', array('required'=> false))
             ->add('observaciones', 'text', array('required'=>false))
-            ->add('idEspecifico')
-            ->add('idEspecificoOnu')
-            ->add('idUnidadMedida')
+            ->add('idEspecifico', 'entity',
+                    array('class' => 'SaludComprasBundle:Especifico',
+                        'query_builder' => function ($repository) {
+                            return $repository->createQueryBuilder('e')
+                                    ->orderBy('e.descripcionespecifico')
+                                    ->join('e.idCatalogoProducto', 'c')
+                                    ->where('c.codigocatalogo = :codigo_catalogo')
+                                    ->setParameter('codigo_catalogo', '02')
+                                    ;
+                        }
+                    ))
+            ->add('idEspecificoOnu', 'entity',
+                    array('class' => 'SaludComprasBundle:Especifico',
+                        'query_builder' => function ($repo) {
+                            return $repo->createQueryBuilder('eo')
+                                    ->orderBy('eo.descripcionespecifico')
+                                    ->join('eo.idCatalogoProducto', 'c')
+                                    ->where('c.codigocatalogo = :codigo_catalogo')
+                                    ->setParameter('codigo_catalogo', '01')
+                                    ;
+                        }
+                        )
+                    )
+            ->add('idUnidadMedida', 'entity', 
+                    array('class' => 'SaludComprasBundle:UnidadMedida',
+                        'query_builder' => function ($repository){
+                            return $repository->createQueryBuilder('um')
+                                    ->orderBy('um.descripcionunidadmedida');
+                        }
+                        )
+                    )
         ;
     }
 
