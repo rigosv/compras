@@ -41,8 +41,8 @@ class ProductoController extends Controller {
 
     /**
      *
-     * @Route("/producto/edit/{id}", name="_producto_edit"),
-     * @Route("/producto/create", name="_producto_create", requirements={"id"="\d+"})
+     * @Route("/producto/edit/{id}", name="_producto_edit", requirements={"id"="\d+"}),
+     * @Route("/producto/create", name="_producto_create")
      * @Template()
      */
     public function editAction($id=null) {
