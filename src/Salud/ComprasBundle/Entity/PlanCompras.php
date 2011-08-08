@@ -3,12 +3,13 @@
 namespace Salud\ComprasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Salud\ComprasBundle\Entity\PlanCompras
  *
  * @ORM\Table(name="plan_compras")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Salud\ComprasBundle\Repository\PlanComprasRepository")
  */
 class PlanCompras
 {
@@ -89,6 +90,7 @@ class PlanCompras
      * @var string $numeroplan
      *
      * @ORM\Column(name="numeroplan", type="string", length=4, nullable=false)
+     * @Assert\Regex(pattern="/^\d{4}$/", message="Debe tener cuatro dígitos")
      */
     private $numeroplan;
 
@@ -142,7 +144,12 @@ class PlanCompras
      */
     private $idUnidadSolicitante;
 
-
+    public function __construct() {
+        $this->montoplan = 0;
+        $this->autorizado = false;
+        $this->enviado = false;
+        $this->consolidado = false;
+    }
 
     /**
      * Get id

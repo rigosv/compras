@@ -117,4 +117,8 @@ class SubfuenteFinanciamiento
     {
         return $this->idFuenteFinanciamiento;
     }
+    
+    public function __toString() {
+        return $this->descripcionsubfuente;
+    }
 }

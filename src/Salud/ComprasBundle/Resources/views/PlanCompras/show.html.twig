@@ -1,47 +1,66 @@
-<h1>PlanCompras</h1>
+{# src/Salud/ComprasBundle/Resources/views/PlanCompras/show.html.twig #} 
+{% extends 'SaludComprasBundle::layout.html.twig' %} 
 
-<table class="record_properties">
-    <tbody>
-        <tr>
-            <th>Id</th>                <td>{{ entity.id }}</td>        </tr>
-        <tr>
-            <th>Numeroconvenio</th>                <td>{{ entity.numeroconvenio }}</td>        </tr>
-        <tr>
-            <th>Montoplan</th>                <td>{{ entity.montoplan }}</td>        </tr>
-        <tr>
-            <th>Autorizado</th>                <td>{{ entity.autorizado }}</td>        </tr>
-        <tr>
-            <th>Fechaautorizacion</th>                <td>{{ entity.fechaAutorizacion|date('Y-m-d H:i:s') }}</td>        </tr>
-        <tr>
-            <th>Enviado</th>                <td>{{ entity.enviado }}</td>        </tr>
-        <tr>
-            <th>Fechaenvio</th>                <td>{{ entity.fechaEnvio|date('Y-m-d H:i:s') }}</td>        </tr>
-        <tr>
-            <th>Consolidado</th>                <td>{{ entity.consolidado }}</td>        </tr>
-        <tr>
-            <th>Modificacioneshasta</th>                <td>{{ entity.modificacionesHasta|date('Y-m-d H:i:s') }}</td>        </tr>
-        <tr>
-            <th>Permisos</th>                <td>{{ entity.permisos }}</td>        </tr>
-        <tr>
-            <th>Numeroplan</th>                <td>{{ entity.numeroplan }}</td>        </tr>
-    </tbody>
-</table>
+{% block content %} 
+<table > 
+    <tr> 
+        <th>Plan:</th>
+        <td > 
+            {{entity.idUnidadSolicitante.codigounidad}} -
+            {{entity.idFuenteFinanciamiento.codigofuente}} -
+            {{entity.idPeriodoFiscal.aniofiscal}} 
+        </td> 
+        <th  align=right>Per&iacute;odo Fiscal:</th> 
+        <TD > 
+            {{entity.idPeriodoFiscal.aniofiscal}} 
+        </TD> 
+        <th align=right>N&uacute;mero convenio:</th> 
+        <TD >			 
+           {{entity.numeroconvenio?entity.numeroconvenio:"----"}} 
+        </TD> 
 
+    </tr> 
+    <tr> 
+        <th width='21%'>Unidad / Facultad:</th> 
+        <td colspan="5" > 
+            {{entity.idUnidadSolicitante.nombreunidad}} 
+        </td> 
+    </tr> 
+    <tr> 
+        <th >L&iacute;nea de trabajo que financia:</th> 
+
+        <td colspan="5" > 
+            {{entity.idUnidadFinanciadora.nombreunidad}} 
+        </td> 
+    </tr> 
+    <tr> 
+        <th >Origen Financiamiento:</th> 
+        <td > 
+            {{entity.idFuenteFinanciamiento.idOrigenFinanciamiento.descripcionorigen}} 
+        </td> 
+        <th  width=15% align=right>Fuente Financiamiento:</th> 
+        <td colspan="3"  > 
+            {{entity.idFuenteFinanciamiento.descripcionfuente}} 
+        </td> 
+    </tr> 
+</table> 
+</br></br>
 <ul class="record_actions">
     <li>
         <a href="{{ path('plancompras') }}">
-            Back to the list
+            Regresar al listado
         </a>
     </li>
     <li>
         <a href="{{ path('plancompras_edit', { 'id': entity.id }) }}">
-            Edit
+            Editar
         </a>
     </li>
     <li>
         <form action="{{ path('plancompras_delete', { 'id': entity.id }) }}" method="post">
             {{ form_widget(delete_form) }}
-            <button type="submit">Delete</button>
+            <button type="submit">Borrar Plan</button>
         </form>
     </li>
 </ul>
+{% endblock %}

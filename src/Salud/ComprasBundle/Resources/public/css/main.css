@@ -77,7 +77,7 @@ p
 
 ul#demo-list a
 {
-    background: url(../images/blue-arrow.png) no-repeat right 6px;
+    background: url('../images/blue-arrow.png') no-repeat right 6px;
     padding-right: 10px;
 }
 
@@ -160,7 +160,7 @@ ul li
     float: left;
     width: 20px;
     height: 25px;
-    background: url(../images/search.png) no-repeat left 5px;
+    background: url('../images/search.png') no-repeat left 5px;
 }
 
 #symfony-search label span
@@ -171,7 +171,7 @@ ul li
 input[type=text], input[type=password]
 {
     border:      1px solid #DADADA;
-    background:  white url(../images/field-background.gif) repeat-x left top;
+    background:  white url('../images/field-background.gif') repeat-x left top;
     padding:     5px 6px;
     color:       #565656;
     font-family: 'Lucida Sans Unicode', 'Lucida Grande', Verdana, Arial, Helvetica, sans-serif;
@@ -316,7 +316,7 @@ ul#menu
     width: 150px;
 }
 
-input[type=submit]
+input[type=submit], button[type=submit]
 {
     font-weight:   bold;
     color:         black;
@@ -331,7 +331,7 @@ input[type=submit]
 
 }
 
-input[type=submit]:hover
+input[type=submit]:hover, button[type=submit]:hover
 {
     
     background-color: #C3DA85;

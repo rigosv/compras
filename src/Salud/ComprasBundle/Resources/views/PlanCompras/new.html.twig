@@ -1,16 +1,21 @@
-<h1>PlanCompras creation</h1>
+{# src/Salud/ComprasBundle/Resources/views/PlanCompras/show.html.twig #} 
+{% extends 'SaludComprasBundle::layout.html.twig' %} 
+
+{% block content %}
+<h1>Crear Plan de Compras</h1>
 
 <form action="{{ path('plancompras_create') }}" method="post" {{ form_enctype(form) }}>
     {{ form_widget(form) }}
     <p>
-        <button type="submit">Create</button>
+        <button type="submit">Crear</button>
     </p>
 </form>
 
 <ul class="record_actions">
     <li>
         <a href="{{ path('plancompras') }}">
-            Back to the list
+            Regresar al listado
         </a>
     </li>
 </ul>
+{% endblock %}

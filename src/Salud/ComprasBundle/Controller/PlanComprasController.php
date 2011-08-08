@@ -26,9 +26,9 @@ class PlanComprasController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entities = $em->getRepository('SaludComprasBundle:PlanCompras')->findAll();
+        $planes = $em->getRepository('SaludComprasBundle:PlanCompras')->getPlanes();
 
-        return array('entities' => $entities);
+        return array('planes' => $planes->getResult());
     }
 
     /**
