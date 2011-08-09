@@ -316,7 +316,7 @@ ul#menu
     width: 150px;
 }
 
-input[type=submit], button[type=submit]
+input[type=submit], button
 {
     font-weight:   bold;
     color:         black;
@@ -331,7 +331,7 @@ input[type=submit], button[type=submit]
 
 }
 
-input[type=submit]:hover, button[type=submit]:hover
+input[type=submit]:hover, button:hover
 {
     
     background-color: #C3DA85;

@@ -1,5 +1,5 @@
 <?php
-
+// src/Salud/ComprasBundle/Controller/PlanComprasController.php
 namespace Salud\ComprasBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Salud\ComprasBundle\Entity\PlanCompras;
 use Salud\ComprasBundle\Form\PlanComprasType;
+
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * PlanCompras controller.
@@ -47,11 +49,9 @@ class PlanComprasController extends Controller
             throw $this->createNotFoundException('Unable to find PlanCompras entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
-
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),        );
+            'front_controller' => $this->getRequest()->getScriptName()  );
     }
 
     /**
@@ -198,5 +198,34 @@ class PlanComprasController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+    
+    /**
+     * @Route("/{id_plan}/detalle", name="_plan_compras_detalle", requirements={"id_plan"= "\d+"})
+     */
+    public function detallePlanAction($id_plan) {
+      
+        $em = $this->getDoctrine()->getEntityManager();
+
+        $detalle = $em->getRepository('SaludComprasBundle:LineaPlan')
+                ->getDetallePlan($id_plan);
+
+        $detalle_array = $detalle->getArrayResult();
+
+        $output = array(); $i = 0; $total_plan = 0;
+        
+        foreach ($detalle_array as $row) {
+            $output['rows'][$i]['id'] = $row['id'];
+            $output['rows'][$i]['cell'] = array(                
+                $row['descripcionitem'],
+                $row['descripcionunidadmedida'], $row['preciounitario'],
+                $row['cantidadPedido'], $row['total']);
+            $total_plan += $row['total'];
+            ++$i;
+        }
+
+        $output['userdata']['total'] = number_format($total_plan, 2, '.', ',');
+
+        return new Response(json_encode($output), 200, array('Content-Type' => 'application/json'));
     }
 }

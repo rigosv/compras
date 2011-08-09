@@ -1,6 +1,22 @@
 {# src/Salud/ComprasBundle/Resources/views/PlanCompras/show.html.twig #} 
 {% extends 'SaludComprasBundle::layout.html.twig' %} 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery-1.6.2.min.js') }}" ></script>
+    
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.1.2/js/i18n/grid.locale-es.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.1.2/js/jquery.jqGrid.src.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery-ui-1.8.15.custom/js/jquery-ui-1.8.15.custom.min.js') }}" ></script>
+    
+    <script type="text/javascript" src="{{ asset('bundles/saludcompras/js/PlanCompras.js') }}" ></script>
+    
+{% endblock %}
 
+{% block stylesheets%}
+    {{ parent() }}
+	<link rel="stylesheet" href="{{ asset('bundles/jquery/js/jquery.jqGrid-4.1.2/css/ui.jqgrid.css')}}" type="text/css" media="all" ></link>
+        <link rel="stylesheet" href="{{ asset('bundles/jquery/js/jquery-ui-1.8.15.custom/css/redmond/jquery-ui-1.8.15.custom.css')}}" type="text/css" media="all" ></link>
+{% endblock %}
 {% block content %} 
 <table > 
     <tr> 
@@ -51,16 +67,19 @@
             Regresar al listado
         </a>
     </li>
-    <li>
-        <a href="{{ path('plancompras_edit', { 'id': entity.id }) }}">
-            Editar
-        </a>
-    </li>
-    <li>
-        <form action="{{ path('plancompras_delete', { 'id': entity.id }) }}" method="post">
-            {{ form_widget(delete_form) }}
-            <button type="submit">Borrar Plan</button>
-        </form>
-    </li>
 </ul>
+
+<table id="detalle_plan"><tr><td/></tr></table> 
+<div id="toolbar1"></div>
+<div id='pager' ></div>
+<DIV id="botones" >
+    <BUTTON id="add_button">Agregar</button>
+    <BUTTON id="edit_button">Guardar Cambios</button>
+    <BUTTON id="delete_button">Borrar...</button>
+</div>
+
+<div id='data_control'>
+    <input type="hidden" value="{{front_controller}}" name="front_controller" id="front_controller" />
+    <input type="hidden" value="{{entity.id}}" name="idPlan" id="id_plan" />
+</div>
 {% endblock %}
