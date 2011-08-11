@@ -1,7 +1,7 @@
 <?php
 
 // src/Salud/ComprasBundle/Repository/LineaPlanRepository.php
-
+    
 namespace Salud\ComprasBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
