@@ -29,7 +29,7 @@ class PlanComprasController extends Controller {
      */
     public function indexAction() {
         $em = $this->getDoctrine()->getEntityManager();
-
+ 
         $planes = $em->getRepository('SaludComprasBundle:PlanCompras')->getPlanes();
 
         return array('planes' => $planes->getResult());

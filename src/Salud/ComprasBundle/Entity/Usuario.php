@@ -2,6 +2,7 @@
 
 namespace Salud\ComprasBundle\Entity;
 
+use FOS\UserBundle\Entity\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="usuario")
  * @ORM\Entity
  */
-class Usuario
+class Usuario extends BaseUser
 {
     /**
      * @var integer $id
@@ -20,43 +21,9 @@ class Usuario
      * @ORM\GeneratedValue(strategy="SEQUENCE")
      * @ORM\SequenceGenerator(sequenceName="usuario_id_seq", allocationSize="1", initialValue="1")
      */
-    private $id;
+    protected $id;
 
-    /**
-     * @var string $codigousuario
-     *
-     * @ORM\Column(name="codigousuario", type="string", length=25, nullable=false)
-     */
-    private $codigousuario;
-
-    /**
-     * @var string $nombreusuario
-     *
-     * @ORM\Column(name="nombreusuario", type="string", length=50, nullable=false)
-     */
-    private $nombreusuario;
-
-    /**
-     * @var string $claveusuario
-     *
-     * @ORM\Column(name="claveusuario", type="string", length=150, nullable=false)
-     */
-    private $claveusuario;
-
-    /**
-     * @var boolean $estaactivo
-     *
-     * @ORM\Column(name="estaactivo", type="boolean", nullable=false)
-     */
-    private $estaactivo;
-
-    /**
-     * @var string $email
-     *
-     * @ORM\Column(name="email", type="string", length=150, nullable=true)
-     */
-    private $email;
-
+       
     /**
      * @var PerfilUsuario
      *
@@ -89,106 +56,9 @@ class Usuario
         return $this->id;
     }
 
-    /**
-     * Set codigousuario
-     *
-     * @param string $codigousuario
-     */
-    public function setCodigousuario($codigousuario)
-    {
-        $this->codigousuario = $codigousuario;
-    }
+    
 
-    /**
-     * Get codigousuario
-     *
-     * @return string $codigousuario
-     */
-    public function getCodigousuario()
-    {
-        return $this->codigousuario;
-    }
-
-    /**
-     * Set nombreusuario
-     *
-     * @param string $nombreusuario
-     */
-    public function setNombreusuario($nombreusuario)
-    {
-        $this->nombreusuario = $nombreusuario;
-    }
-
-    /**
-     * Get nombreusuario
-     *
-     * @return string $nombreusuario
-     */
-    public function getNombreusuario()
-    {
-        return $this->nombreusuario;
-    }
-
-    /**
-     * Set claveusuario
-     *
-     * @param string $claveusuario
-     */
-    public function setClaveusuario($claveusuario)
-    {
-        $this->claveusuario = $claveusuario;
-    }
-
-    /**
-     * Get claveusuario
-     *
-     * @return string $claveusuario
-     */
-    public function getClaveusuario()
-    {
-        return $this->claveusuario;
-    }
-
-    /**
-     * Set estaactivo
-     *
-     * @param boolean $estaactivo
-     */
-    public function setEstaactivo($estaactivo)
-    {
-        $this->estaactivo = $estaactivo;
-    }
-
-    /**
-     * Get estaactivo
-     *
-     * @return boolean $estaactivo
-     */
-    public function getEstaactivo()
-    {
-        return $this->estaactivo;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string $email
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
+    
     /**
      * Set idPerfilUsuario
      *
