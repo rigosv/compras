@@ -16,3 +16,9 @@ Instalación
 Todo lo demás se explica con mayor detalle en la documentación.
 El archivo para crear la base de datos (se explica en la documentación cómo hacerlo)
 se encuentra en src/app/Resources/db
+
+Autor
+-------
+Rigoberto Reyes
+País: El Salvador
+correo: rigoberto.reyes@gmail.com
