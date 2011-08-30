@@ -51,36 +51,49 @@ class ProductoController extends Controller {
         if (isset($id)) {
             $producto = $em->find('SaludComprasBundle:Item', $id);
             if (!$producto)
-                throw $this->createNotFoundException ("Producto no encontrado");
+                throw $this->createNotFoundException("Producto no encontrado");
         }
         else
             $producto = new Item();
 
         $form = $this->createForm(new ItemType(), $producto);
-        
-        
+
+
         if ($this->getRequest()->getMethod() == 'POST') {
             //Enlazar el formulario con los datos enviados por el usuario
             $form->bindRequest($this->getRequest());
-            
+
             //Validar los datos ingresados en el formulario
-            if ($form->isValid())
-            {
+            if ($form->isValid()) {
                 //Guardar el objeto (aún no en la base de datos)
                 $em->persist($producto);
-                
+
                 //Escribir los cambios a la base de datos
                 $em->flush();
-                
+
+                if ($id == null) {
+                    // creando la ACL
+                    $aclProvider = $this->get('security.acl.provider');
+                    $objectIdentity = ObjectIdentity::fromDomainObject($producto);
+                    $acl = $aclProvider->createAcl($objectIdentity);
+                    
+                    // recupera la identidad de seguridad del usuario registrado actual
+                    $securityContext = $this->get('security.context');
+                    $user = $securityContext->getToken()->getUser();
+                    $securityIdentity = UserSecurityIdentity::fromAccount($user);
+
+                    // otorga permiso de propietario
+                    $acl->insertObjectAce($securityIdentity, MaskBuilder::MASK_OWNER);
+                    $aclProvider->updateAcl($acl);
+                }
+
                 //Después de guardar exitosamente es recomendable
                 //rediriguir al usuario hacia otra página 
-                // para evitar que los datos se reenvien si refresca la página
-                
-                return $this->redirect($this->generateUrl('_producto_show', 
-                        array('id'=>$producto->getId())));
+                // para evitar que los datos se reenvien si refresca la página                
+                return $this->redirect($this->generateUrl('_producto_show', array('id' => $producto->getId())));
             }
         }
-        return array('form' => $form->createView() , 'producto'=>$producto);
+        return array('form' => $form->createView(), 'producto' => $producto);
     }
 
 }
