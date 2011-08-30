@@ -7,9 +7,8 @@ security:
       http_basic:
         realm: "Area Segura"
 
-  access_control:    
+  access_control:
     - { path: ^/plancompras/*, roles: 'ROLE_USER' }
-    - { path: ^/producto/*, roles: 'ROLE_ADMIN' }
       
   providers:
     in_memory:

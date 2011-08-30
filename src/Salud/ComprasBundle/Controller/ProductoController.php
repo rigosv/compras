@@ -7,12 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Salud\ComprasBundle\Entity\Item;
 use Salud\ComprasBundle\Form\ItemType;
+use JMS\SecurityExtraBundle\Annotation\Secure;
 
 class ProductoController extends Controller {
 
     /**
      * @Route("/producto/list", name="_producto_list")
      * @Template()
+     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function listAction() {
         //Creamos una instancia del Entity Manager
@@ -27,6 +29,7 @@ class ProductoController extends Controller {
     /**
      * @Route("/producto/show/{id}", name="_producto_show")
      * @Template()
+     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function showAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
@@ -44,11 +47,16 @@ class ProductoController extends Controller {
      * @Route("/producto/edit/{id}", name="_producto_edit", requirements={"id"="\d+"}),
      * @Route("/producto/create", name="_producto_create")
      * @Template()
+     * @Secure(roles="ROLE_USER")
      */
     public function editAction($id=null) {
 
         $em = $this->getDoctrine()->getEntityManager();
         if (isset($id)) {
+            
+            if ( !$this->get('security.context')->isGranted('ROLE_ADMIN'))
+                throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
+
             $producto = $em->find('SaludComprasBundle:Item', $id);
             if (!$producto)
                 throw $this->createNotFoundException("Producto no encontrado");
