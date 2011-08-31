@@ -9,6 +9,7 @@ security:
 
   access_control:
     - { path: ^/plancompras/*, roles: 'ROLE_USER' }
+    - { path: ^/producto/*, roles: 'IS_AUTHENTICATED_FULLY' }
       
   providers:
     in_memory:

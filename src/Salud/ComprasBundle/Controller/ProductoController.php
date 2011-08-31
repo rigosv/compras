@@ -9,12 +9,17 @@ use Salud\ComprasBundle\Entity\Item;
 use Salud\ComprasBundle\Form\ItemType;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 
+use \Symfony\Component\Security\Acl\Domain\ObjectIdentity;
+use \Symfony\Component\Security\Acl\Domain\UserSecurityIdentity;
+use \Symfony\Component\Security\Acl\Permission\MaskBuilder;
+
+use \Symfony\Component\Security\Core\Exception\AccessDeniedException;
+
 class ProductoController extends Controller {
 
     /**
      * @Route("/producto/list", name="_producto_list")
      * @Template()
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function listAction() {
         //Creamos una instancia del Entity Manager
@@ -29,7 +34,6 @@ class ProductoController extends Controller {
     /**
      * @Route("/producto/show/{id}", name="_producto_show")
      * @Template()
-     * @Secure(roles="IS_AUTHENTICATED_FULLY")
      */
     public function showAction($id) {
         $em = $this->getDoctrine()->getEntityManager();
@@ -45,21 +49,21 @@ class ProductoController extends Controller {
     /**
      *
      * @Route("/producto/edit/{id}", name="_producto_edit", requirements={"id"="\d+"}),
-     * @Route("/producto/create", name="_producto_create")
+     * @Route("/producto/create", name="_producto_create")     
      * @Template()
-     * @Secure(roles="ROLE_USER")
      */
     public function editAction($id=null) {
 
         $em = $this->getDoctrine()->getEntityManager();
         if (isset($id)) {
-            
-            if ( !$this->get('security.context')->isGranted('ROLE_ADMIN'))
-                throw new \Symfony\Component\Security\Core\Exception\AccessDeniedException();
-
             $producto = $em->find('SaludComprasBundle:Item', $id);
             if (!$producto)
                 throw $this->createNotFoundException("Producto no encontrado");
+            $securityContext = $this->get('security.context');
+            // comprueba el acceso para edición
+            if (false === $securityContext->isGranted('EDIT', $producto)) {
+                throw new AccessDeniedException('Acceso denegado');
+            }
         }
         else
             $producto = new Item();
@@ -84,7 +88,7 @@ class ProductoController extends Controller {
                     $aclProvider = $this->get('security.acl.provider');
                     $objectIdentity = ObjectIdentity::fromDomainObject($producto);
                     $acl = $aclProvider->createAcl($objectIdentity);
-                    
+
                     // recupera la identidad de seguridad del usuario registrado actual
                     $securityContext = $this->get('security.context');
                     $user = $securityContext->getToken()->getUser();
