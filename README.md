@@ -11,7 +11,8 @@ Instalación
 
 ### b) Instala las librerías vendors
 
-    php bin/vendors install
+     php bin/vendors install
+     
 
 Todo lo demás se explica con mayor detalle en la documentación.
 El archivo para crear la base de datos (se explica en la documentación cómo hacerlo)
