@@ -3,7 +3,7 @@ Gestión de Compras
 Esta aplicación la he realizado como un ejercicio para aprender Symfony2.
 Lo más importante es que he ido documentando cada paso para que sirva de aprendizaje a otros.
 
-La documentación se puede encontrar en src/app/Resources/doc
+La documentación se puede encontrar en app/Resources/doc
 
 Instalación
 ----------------
