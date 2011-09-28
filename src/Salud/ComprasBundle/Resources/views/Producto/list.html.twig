@@ -1,0 +1,37 @@
+{# src/Salud/ComprasBundle/Resources/views/Producto/list.html.twig #}
+{% extends 'SaludComprasBundle::layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/saludcompras/css/list.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/jquery/jQueryUI/css/redmond/jquery-ui-1.8.16.custom.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block javascripts %}
+    {{parent()}}    
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jQueryUI/js/jquery-ui-1.8.16.custom.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/saludcompras/js/Producto/list.js') }}" ></script>
+{% endblock %}
+{% block content%}
+    <h1>Listado de productos</h1>
+    <table class='listado'>
+    {% for producto in productos %}
+        <TR>
+            <TD class='descripcionitem'>
+               <A href='{{ path('_producto_show',{'id': producto.id}) }}' >
+ 			{{producto.descripcionitem}}
+		  </A>
+            </TD>
+            <TD>
+                {{producto.preciounitario}}
+            </td>
+            <td>
+                {{producto.idEspecifico.codigoespecifico}} 
+            </td>
+            <TD>
+               <A href='{{ path('_producto_edit', {'id': producto.id}) }}'> 
+                    EDITAR
+               </A>
+            </TD>
+        </TR>
+    {% endfor %}
+   </table>
+{% endblock %}

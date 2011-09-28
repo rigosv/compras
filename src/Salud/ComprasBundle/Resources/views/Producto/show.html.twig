@@ -1,0 +1,23 @@
+{# src/Salud/ComprasBundle/Resources/views/Producto/show.html.twig #}
+{% extends ajax ? "SaludComprasBundle::layout.html_ajax.twig":'SaludComprasBundle::layout.html.twig' %}
+
+{% block content %}
+<table>
+    <tr>
+        <TD>DESCRIPCION: </td>
+        <td>{{producto.descripcionitem}}</td>
+    </tr>
+    <tr>
+        <TD>PRECIO UNITARIO: </td>
+        <td>{{producto.preciounitario}}</td>
+    </tr>
+    <tr>
+        <td>UNIDAD DE MEDIDA: </td>
+        <td>{{producto.idUnidadMedida.descripcionunidadmedida}}</td>
+    </tr>
+    <tr>
+        <TD>ESPECIFICO: </td>
+        <td>{{producto.idEspecifico.descripcionespecifico}}</td>
+    </tr>
+</table>
+{% endblock %}

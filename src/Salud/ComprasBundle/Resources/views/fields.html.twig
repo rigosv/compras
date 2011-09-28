@@ -1,0 +1,11 @@
+{# src/Salud/ComprasBundle/Resources/views/fields.html.twig #}
+
+{% block field_row %}
+{% spaceless %}
+    <div class="form_row">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock field_row %}

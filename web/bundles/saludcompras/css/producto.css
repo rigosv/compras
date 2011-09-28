@@ -1,0 +1,5 @@
+/* src/Salud/ComprasBundle/Resources/public/css/producto.css */
+#salud_comprasbundle_itemtype_idEspecificoOnu, #salud_comprasbundle_itemtype_idEspecifico
+{
+    width: 80%;
+}
