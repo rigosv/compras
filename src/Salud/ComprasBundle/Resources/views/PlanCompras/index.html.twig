@@ -1,0 +1,55 @@
+<h1>PlanCompras list</h1>
+
+<table class="records_list">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Numeroconvenio</th>
+            <th>Montoplan</th>
+            <th>Autorizado</th>
+            <th>Fechaautorizacion</th>
+            <th>Enviado</th>
+            <th>Fechaenvio</th>
+            <th>Consolidado</th>
+            <th>Modificacioneshasta</th>
+            <th>Permisos</th>
+            <th>Numeroplan</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for entity in entities %}
+        <tr>
+            <td><a href="{{ path('plancompras_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.numeroconvenio }}</td>
+            <td>{{ entity.montoplan }}</td>
+            <td>{{ entity.autorizado }}</td>
+            <td>{{ entity.fechaAutorizacion|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.enviado }}</td>
+            <td>{{ entity.fechaEnvio|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.consolidado }}</td>
+            <td>{{ entity.modificacionesHasta|date('Y-m-d H:i:s') }}</td>
+            <td>{{ entity.permisos }}</td>
+            <td>{{ entity.numeroplan }}</td>
+            <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('plancompras_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('plancompras_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<ul>
+    <li>
+        <a href="{{ path('plancompras_new') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>

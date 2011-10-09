@@ -225,4 +225,8 @@ class UnidadSolicitante
     {
         return $this->idNivel;
     }
+    
+    public function __toString() {
+        return $this->nombreunidad;
+    }
 }

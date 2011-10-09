@@ -1,0 +1,69 @@
+<h1>PlanCompras</h1>
+
+<table class="record_properties">
+    <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ entity.id }}</td>
+        </tr>
+        <tr>
+            <th>Numeroconvenio</th>
+            <td>{{ entity.numeroconvenio }}</td>
+        </tr>
+        <tr>
+            <th>Montoplan</th>
+            <td>{{ entity.montoplan }}</td>
+        </tr>
+        <tr>
+            <th>Autorizado</th>
+            <td>{{ entity.autorizado }}</td>
+        </tr>
+        <tr>
+            <th>Fechaautorizacion</th>
+            <td>{{ entity.fechaAutorizacion|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Enviado</th>
+            <td>{{ entity.enviado }}</td>
+        </tr>
+        <tr>
+            <th>Fechaenvio</th>
+            <td>{{ entity.fechaEnvio|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Consolidado</th>
+            <td>{{ entity.consolidado }}</td>
+        </tr>
+        <tr>
+            <th>Modificacioneshasta</th>
+            <td>{{ entity.modificacionesHasta|date('Y-m-d H:i:s') }}</td>
+        </tr>
+        <tr>
+            <th>Permisos</th>
+            <td>{{ entity.permisos }}</td>
+        </tr>
+        <tr>
+            <th>Numeroplan</th>
+            <td>{{ entity.numeroplan }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<ul class="record_actions">
+    <li>
+        <a href="{{ path('plancompras') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('plancompras_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>
+        <form action="{{ path('plancompras_delete', { 'id': entity.id }) }}" method="post">
+            {{ form_widget(delete_form) }}
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+</ul>

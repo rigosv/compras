@@ -87,4 +87,8 @@ class PeriodoFiscal
     {
         return $this->estaactivo;
     }
+    
+    public function __toString() {
+        return (string) $this->aniofiscal;
+    }
 }
