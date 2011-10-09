@@ -2,4 +2,8 @@ vendor/
 nbproject/
 app/cache/
 app/logs/
+web/bundles/
+app/bootstrap*
+app/cache/*
+app/logs/*
 ~
