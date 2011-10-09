@@ -20,23 +20,13 @@ class ItemType extends AbstractType
             ->add('idEspecifico', 'entity',
                     array('class' => 'SaludComprasBundle:Especifico',
                         'query_builder' => function ($repository) {
-                            return $repository->createQueryBuilder('e')
-                                    ->orderBy('e.descripcionespecifico')
-                                    ->join('e.idCatalogoProducto', 'c')
-                                    ->where('c.codigocatalogo = :codigo_catalogo')
-                                    ->setParameter('codigo_catalogo', '02')
-                                    ;
+                            return $repository->getByCatalogo('02');
                         }
                     ))
             ->add('idEspecificoOnu', 'entity',
                     array('class' => 'SaludComprasBundle:Especifico',
                         'query_builder' => function ($repo) {
-                            return $repo->createQueryBuilder('e')
-                                    ->orderBy('e.descripcionespecifico')
-                                    ->join('e.idCatalogoProducto', 'c')
-                                    ->where('c.codigocatalogo = :codigo_catalogo')
-                                    ->setParameter('codigo_catalogo', '01')
-                                    ;
+                            return $repo->getByCatalogo('01');
                         }
                         )
                     )

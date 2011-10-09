@@ -12,4 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class EspecificoRepository extends EntityRepository
 {
+    public function getByCatalogo($catalogo) {
+        $qb = $this->createQueryBuilder('e')
+                ->orderBy('e.descripcionespecifico')
+                ->join('e.idCatalogoProducto', 'c')
+                ->where('c.codigocatalogo = :catalogo_producto')
+                ->setParameter('catalogo_producto', $catalogo)
+                ;
+        return $qb;
+    }
 }
