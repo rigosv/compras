@@ -1,3 +1,10 @@
+{# src/Salud/ComprasBundle/Resources/views/PlanCompras/list.html.twig #}
+{% extends 'SaludComprasBundle::layout.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('bundles/saludcompras/css/list.css') }}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content%}
 <h1>PlanCompras list</h1>
 
 <table class="records_list">
@@ -53,3 +60,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}

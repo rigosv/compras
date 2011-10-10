@@ -1,3 +1,8 @@
+{# src/Salud/ComprasBundle/Resources/views/PlanCompras/new.html.twig #}
+{% extends "SaludComprasBundle::layout.html.twig" %}
+{% form_theme form 'SaludComprasBundle::fields.html.twig' %}
+
+{% block content %}
 <h1>PlanCompras creation</h1>
 
 <form action="{{ path('plancompras_create') }}" method="post" {{ form_enctype(form) }}>
@@ -14,3 +19,4 @@
         </a>
     </li>
 </ul>
+{% endblock %}

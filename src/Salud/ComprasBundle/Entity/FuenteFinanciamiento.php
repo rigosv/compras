@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="fuente_financiamiento")
  * @ORM\Entity
  */
-class FuenteFinanciamiento
-{
+class FuenteFinanciamiento {
+
     /**
      * @var integer $id
      *
@@ -43,15 +43,12 @@ class FuenteFinanciamiento
      */
     private $idOrigenFinanciamiento;
 
-
-
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -60,8 +57,7 @@ class FuenteFinanciamiento
      *
      * @param string $codigofuente
      */
-    public function setCodigofuente($codigofuente)
-    {
+    public function setCodigofuente($codigofuente) {
         $this->codigofuente = $codigofuente;
     }
 
@@ -70,8 +66,7 @@ class FuenteFinanciamiento
      *
      * @return string 
      */
-    public function getCodigofuente()
-    {
+    public function getCodigofuente() {
         return $this->codigofuente;
     }
 
@@ -80,8 +75,7 @@ class FuenteFinanciamiento
      *
      * @param string $descripcionfuente
      */
-    public function setDescripcionfuente($descripcionfuente)
-    {
+    public function setDescripcionfuente($descripcionfuente) {
         $this->descripcionfuente = $descripcionfuente;
     }
 
@@ -90,8 +84,7 @@ class FuenteFinanciamiento
      *
      * @return string 
      */
-    public function getDescripcionfuente()
-    {
+    public function getDescripcionfuente() {
         return $this->descripcionfuente;
     }
 
@@ -100,8 +93,7 @@ class FuenteFinanciamiento
      *
      * @param integer $idOrigenFinanciamiento
      */
-    public function setIdOrigenFinanciamiento($idOrigenFinanciamiento)
-    {
+    public function setIdOrigenFinanciamiento($idOrigenFinanciamiento) {
         $this->idOrigenFinanciamiento = $idOrigenFinanciamiento;
     }
 
@@ -110,12 +102,12 @@ class FuenteFinanciamiento
      *
      * @return integer 
      */
-    public function getIdOrigenFinanciamiento()
-    {
+    public function getIdOrigenFinanciamiento() {
         return $this->idOrigenFinanciamiento;
     }
-    
+
     public function __toString() {
         return $this->descripcionfuente;
     }
+
 }
