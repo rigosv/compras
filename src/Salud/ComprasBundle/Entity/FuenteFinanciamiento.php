@@ -36,10 +36,13 @@ class FuenteFinanciamiento {
      */
     private $descripcionfuente;
 
-    /**
-     * @var integer $idOrigenFinanciamiento
+        /**
+     * @var OrigenFinanciamiento
      *
-     * @ORM\Column(name="id_origen_financiamiento", type="integer", nullable=true)
+     * @ORM\ManyToOne(targetEntity="OrigenFinanciamiento")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_origen_financiamiento", referencedColumnName="id")
+     * })
      */
     private $idOrigenFinanciamiento;
 

@@ -1,3 +1,4 @@
+{# src/Salud/ComprasBundle/Resources/views/PlanCompras/index.html.twig #}
 {# src/Salud/ComprasBundle/Resources/views/PlanCompras/list.html.twig #}
 {% extends 'SaludComprasBundle::layout.html.twig' %}
 {% block stylesheets %}
@@ -5,59 +6,46 @@
     <link href="{{ asset('bundles/saludcompras/css/list.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block content%}
-<h1>PlanCompras list</h1>
-
-<table class="records_list">
+<TABLE class='listado'>
+    <caption>Planes de compras</caption>
     <thead>
-        <tr>
-            <th>Id</th>
-            <th>Numeroconvenio</th>
-            <th>Montoplan</th>
-            <th>Autorizado</th>
-            <th>Fechaautorizacion</th>
-            <th>Enviado</th>
-            <th>Fechaenvio</th>
-            <th>Consolidado</th>
-            <th>Modificacioneshasta</th>
-            <th>Permisos</th>
-            <th>Numeroplan</th>
-            <th>Actions</th>
+        <TR>
+            <Th>C&oacute;digo plan</Th>
+            <Th>Unidad solicitante</Th>
+            <Th>N&uacute;mero plan por unidad</Th>
+            <Th>Fuente</Th>
+            <Th>Periodo fiscal</Th>
+            <TH>Fecha autorización</th>
+            <TH>Fecha envio</th>
+            <Th>Acciones</th>
         </tr>
     </thead>
-    <tbody>
-    {% for entity in entities %}
-        <tr>
-            <td><a href="{{ path('plancompras_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-            <td>{{ entity.numeroconvenio }}</td>
-            <td>{{ entity.montoplan }}</td>
-            <td>{{ entity.autorizado }}</td>
-            <td>{{ entity.fechaAutorizacion|date('Y-m-d H:i:s') }}</td>
-            <td>{{ entity.enviado }}</td>
-            <td>{{ entity.fechaEnvio|date('Y-m-d H:i:s') }}</td>
-            <td>{{ entity.consolidado }}</td>
-            <td>{{ entity.modificacionesHasta|date('Y-m-d H:i:s') }}</td>
-            <td>{{ entity.permisos }}</td>
-            <td>{{ entity.numeroplan }}</td>
-            <td>
+    <TBODY>
+        {% for plan in planes %}
+        <TR>
+            <TD>{{plan.idUnidadSolicitante.codigounidad}}-
+                {{plan.idFuenteFinanciamiento.codigofuente}}-
+                {{plan.idPeriodoFiscal.aniofiscal}}
+            </TD>
+            <TD>{{plan.idUnidadSolicitante.nombreunidad}}</TD>
+            <TD>{{plan.numeroplan}}</TD>
+            <TD>{{plan.idFuenteFinanciamiento.descripcionfuente}}</TD>
+            <TD>{{plan.idPeriodoFiscal.aniofiscal}}</TD>
+            <td>{{ plan.fechaAutorizacion?plan.fechaAutorizacion|date('d-m-Y H:i:s'): "---" }}</td>
+            <td>{{plan.fechaEnvio ? plan.fechaEnvio|date('d-m-Y H:i:s'): "---" }}</td>
+            <TD>                 
                 <ul>
                     <li>
-                        <a href="{{ path('plancompras_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('plancompras_show', { 'id': plan.id }) }}">Mostrar</a>
                     </li>
                     <li>
-                        <a href="{{ path('plancompras_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('plancompras_edit', { 'id': plan.id }) }}">Editar</a>
                     </li>
                 </ul>
             </td>
+            </td>
         </tr>
-    {% endfor %}
-    </tbody>
+        {% endfor %}
+    </TBODY>
 </table>
-
-<ul>
-    <li>
-        <a href="{{ path('plancompras_new') }}">
-            Create a new entry
-        </a>
-    </li>
-</ul>
 {% endblock %}
