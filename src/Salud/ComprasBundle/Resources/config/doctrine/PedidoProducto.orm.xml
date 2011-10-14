@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\PedidoProducto" table="pedido_producto">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="numeropedido" type="string" column="numeropedido" length="2"/>
+    <field name="mespedido" type="string" column="mespedido" length="2"/>
+    <field name="cantidad" type="float" column="cantidad"/>
+    <many-to-one field="idLineaPlan" target-entity="LineaPlan" orphan-removal="">
+      <join-columns>
+        <join-column name="id_linea_plan" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

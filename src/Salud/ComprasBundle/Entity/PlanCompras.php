@@ -6,153 +6,89 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\PlanCompras
- *
- * @ORM\Table(name="plan_compras")
- * @ORM\Entity(repositoryClass="Salud\ComprasBundle\Repository\PlanComprasRepository")
  */
 class PlanCompras
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="plan_compras_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $numeroconvenio
-     *
-     * @ORM\Column(name="numeroconvenio", type="string", length=20, nullable=true)
      */
     private $numeroconvenio;
 
     /**
      * @var decimal $montoplan
-     *
-     * @ORM\Column(name="montoplan", type="decimal", nullable=false)
      */
     private $montoplan;
 
     /**
      * @var boolean $autorizado
-     *
-     * @ORM\Column(name="autorizado", type="boolean", nullable=false)
      */
     private $autorizado;
 
     /**
      * @var date $fechaAutorizacion
-     *
-     * @ORM\Column(name="fecha_autorizacion", type="date", nullable=true)
      */
     private $fechaAutorizacion;
 
     /**
      * @var boolean $enviado
-     *
-     * @ORM\Column(name="enviado", type="boolean", nullable=false)
      */
     private $enviado;
 
     /**
      * @var date $fechaEnvio
-     *
-     * @ORM\Column(name="fecha_envio", type="date", nullable=true)
      */
     private $fechaEnvio;
 
     /**
      * @var boolean $consolidado
-     *
-     * @ORM\Column(name="consolidado", type="boolean", nullable=false)
      */
     private $consolidado;
 
     /**
      * @var date $modificacionesHasta
-     *
-     * @ORM\Column(name="modificaciones_hasta", type="date", nullable=true)
      */
     private $modificacionesHasta;
 
     /**
      * @var string $permisos
-     *
-     * @ORM\Column(name="permisos", type="string", length=5, nullable=true)
      */
     private $permisos;
 
     /**
      * @var string $numeroplan
-     *
-     * @ORM\Column(name="numeroplan", type="string", length=4, nullable=false)
      */
     private $numeroplan;
 
     /**
-     * @var FuenteFinanciamiento
-     *
-     * @ORM\ManyToOne(targetEntity="FuenteFinanciamiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_fuente_financiamiento", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\FuenteFinanciamiento
      */
     private $idFuenteFinanciamiento;
 
     /**
-     * @var PeriodoFiscal
-     *
-     * @ORM\ManyToOne(targetEntity="PeriodoFiscal")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_periodo_fiscal", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\PeriodoFiscal
      */
     private $idPeriodoFiscal;
 
     /**
-     * @var SubfuenteFinanciamiento
-     *
-     * @ORM\ManyToOne(targetEntity="SubfuenteFinanciamiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_subfuente_financiamiento", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\SubfuenteFinanciamiento
      */
     private $idSubfuenteFinanciamiento;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_financiadora", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadFinanciadora;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_solicitante", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadSolicitante;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set numeroconvenio
@@ -352,6 +288,16 @@ class PlanCompras
     public function getNumeroplan()
     {
         return $this->numeroplan;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

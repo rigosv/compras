@@ -1,0 +1,523 @@
+.jqx-rc-tl-shinyblack { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-left-radius: 3px; }
+.jqx-rc-tr-shinyblack { -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; }
+.jqx-rc-bl-shinyblack { -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; }
+.jqx-rc-br-shinyblack { -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; }
+.jqx-rc-t-shinyblack { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; }
+.jqx-rc-b-shinyblack { -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; }
+.jqx-rc-r-shinyblack {  -moz-border-radius-topright: 3px; -webkit-border-top-right-radius: 3px; border-top-right-radius: 3px; -moz-border-radius-bottomright: 3px; -webkit-border-bottom-right-radius: 3px; border-bottom-right-radius: 3px; }
+.jqx-rc-l-shinyblack { -moz-border-radius-topleft: 3px; -webkit-border-top-left-radius: 3px; border-top-left-radius: 3px; -moz-border-radius-bottomleft: 3px; -webkit-border-bottom-left-radius: 3px; border-bottom-left-radius: 3px; }
+.jqx-rc-all-shinyblack { -moz-border-radius: 3px; -webkit-border-radius: 3px; border-radius: 3px; }
+
+/*jqxProgresBar Style*/
+.jqx-progressbar-value-shinyblack { outline:none; border: 0px solid #555555; height:100%; font-size: 1.1em;
+ background-color: #262626; /* fallback color if gradients are not supported */
+
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#4E4E4E), to(#262626)); 
+  background-image: -webkit-linear-gradient(top, #4E4E4E, #262626); 
+  background-image:    -moz-linear-gradient(top, #4E4E4E, #262626); 
+  background-image:     -ms-linear-gradient(top, #4E4E4E, #262626); 
+  background-image:      -o-linear-gradient(top, #4E4E4E, #262626); 
+  background-image:         linear-gradient(top, #4E4E4E, #262626); /* standard, but currently unimplemented */
+  filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4E4E4E', endColorstr='#262626'); /* IE6 & IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#4E4E4E', endColorstr='#262626')"; /* IE8 */
+}
+.jqx-progressbar-value-vertical-shinyblack { outline:none; border: 0px solid #555555; height:100%; font-size: 1.1em;
+ background-color: #262626; /* fallback color if gradients are not supported */
+
+  background-image: -webkit-gradient(linear, left top, right top, from(#4E4E4E), to(#262626)); 
+  background-image: -webkit-linear-gradient(left, #4E4E4E, #262626); 
+  background-image:    -moz-linear-gradient(left, #4E4E4E, #262626); 
+  background-image:     -ms-linear-gradient(left, #4E4E4E, #262626); 
+  background-image:      -o-linear-gradient(left, #4E4E4E, #262626); 
+  background-image:         linear-gradient(left, #4E4E4E, #262626); /* standard, but currently unimplemented */
+  filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#4E4E4E', endColorstr='#262626'); /* IE6 & IE7 */
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#4E4E4E', endColorstr='#262626')"; /* IE8 */
+}
+.jqx-progressbar-shinyblack { outline:none; border: 1px solid #555555; background: #FFFFFF; height: 2em; font-size: 1.1em; }
+.jqx-progressbar-disabled-shinyblack { outline:none; border: 1px solid #ccc; background: #ccc; height: 2em; font-size: 1.1em; }
+
+/*jqxPanel Style*/
+.jqx-panel-shinyblack {-webkit-appearance: none; outline: none; background-color: #ffffff; border: 1px solid #555555; padding: 0px; margin: 0px; cursor: default;}
+.jqx-panel-bottomright-shinyblack {background: #555555;}
+
+.jqx-link-shinyblack { text-decoration:none; color: #111111; }
+
+/*jqxMenu Style*/
+.jqx-menu-shinyblack {
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    left: 100%;
+    color: #fff;
+    right: 0;
+    float: none;
+    margin: 0px;
+    visibility: hidden;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    height: 100%;
+    padding: 0px;
+    overflow: hidden;
+    text-align: left;
+}
+.jqx-menu-dropdown-column-shinyblack{
+float:left;
+}
+.jqx-menu-horizontal-shinyblack {
+     background:#000 url(images/bg_black.png) left center scroll repeat-x; 
+     margin: 0px;
+     padding: 0px;
+     overflow: hidden;
+     text-align: center;
+}
+.jqx-menu-vertical-shinyblack {
+     background:#333333; 
+     text-align: left;
+}
+.jqx-menu-dropdown-shinyblack 
+{
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+    font-size: 14px;
+    left: 100%;
+    margin: 0px;
+    padding: 0px;
+    right: 0;
+    overflow: hidden;
+    display: none;
+    float: none;
+    width: 150px;
+    background-color: #333333;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000;
+    text-align: left;
+    padding: 2px;
+}
+.jqx-menu-dropdown-shinyblack ul{
+    left: 100%;
+    margin: 0px;
+    padding: 0px;
+    right: 0;
+    overflow: hidden;
+}
+.jqx-menu-shinyblack ul{
+    left: 100%;
+    margin: 0px;
+    padding: 2px;
+    right: 0;
+    overflow: hidden;
+}
+.jqx-menu-item-top-shinyblack
+{
+    text-indent: 0;
+    list-style: none;
+    padding: 4px 8px 4px 8px;
+    left: 100%;
+    overflow: hidden;
+ 	border: 1px solid transparent;
+    color: inherit;
+    right: 0;
+    margin: 0px 1px 0px 1px; 
+    font-size: 14px;
+    font-family: Verdana,Arial,sans-serif;
+    text-align: left;
+}
+.jqx-menu-item-shinyblack
+{
+    text-indent: 0;
+	background-color: #333333;
+	border: 1px solid #333333;
+    list-style: none;
+    padding: 4px 8px 4px 8px;
+    margin: 1px 1px 1px 1px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    color: #fff;
+    right: 0;
+    font-size: 14px;
+    font-family: Verdana,Arial,sans-serif;
+    text-align: left;
+}
+.jqx-menu-item-separator-shinyblack
+{
+    text-indent: 0;
+	background-color: #aaa;
+	border: none;
+	list-style: none;
+	height: 1px;
+	max-height: 1px;
+    padding: 0px;
+    margin: 1px 2px 1px 2px;
+    float: none;
+    overflow: hidden;
+    left: 100%;
+    color: inherit;
+    right: 0;
+    font-size: 1px;
+    font-family: Verdana,Arial,sans-serif;
+}
+.jqx-menu-item-hover-shinyblack
+{
+    background: transparent url(images/bg_blackHover.png) left center scroll repeat-x;
+    border: 1px solid #000;
+    color: #fff;
+    right: 0;
+    list-style: none;
+    margin: 1px 1px 1px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    text-align: left;
+    cursor: pointer;
+}
+.jqx-menu-item-top-hover-shinyblack
+{
+    background: transparent url(images/bg_blackHover.png) left center scroll repeat-x;
+    border: 1px solid #000;
+    color: inherit;
+    right: 0;
+    list-style: none;
+    margin: 0px 1px 0px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    top: 50%;
+    cursor: pointer;
+}
+.jqx-menu-item-selected-shinyblack
+{ 
+    background: transparent url(images/bg_blackPressed.png) left center scroll repeat-x;
+   	border: 1px solid #000;
+    color: #fff;
+    right: 0;
+    list-style: none;
+    margin: 1px 1px 1px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    text-align: left;
+    cursor: pointer;
+} 
+.jqx-menu-item-top-selected-shinyblack
+{     
+    background: transparent url(images/bg_blackPressed.png) left center scroll repeat-x;
+  	border: 1px solid #000;
+    color: #fff;
+    right: 0;
+    list-style: none;
+    margin: 0px 1px 0px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+    cursor: pointer;
+}
+.jqx-menu-item-disabled-shinyblack
+{
+    color: #ccc;
+    right: 0;
+    list-style: none;
+    margin: 1px 1px 1px 1px;
+    left: 100%;
+    padding: 4px 8px 4px 8px;
+}   
+.jqx-menu-highlighteffect-shinyblack
+{
+    background-color: #ffffff; 
+    right: 0;
+    list-style: none;
+    margin: -2px;
+    left: 100%;
+    padding: 0px 0px 0px 0px;
+}
+.jqx-menu-item-arrow-right-shinyblack  
+{
+ padding-right: 0px;
+ margin-right: -8px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-right.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-top-right-shinyblack  
+{
+ padding-right: 0px;
+ margin-right: -8px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-right-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-down-shinyblack {
+ padding-right: 0px;
+ margin-right: -8px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-down-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-up-shinyblack  {
+ padding-right: 0px;
+ margin-right: -8px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-up-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-left-shinyblack {
+ padding-right: 0px;
+ padding-left: 5px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-left-white.png);
+ background-position: 0 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-top-left-shinyblack {
+ padding-right: 0px;
+ padding-left: 5px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-left-white.png);
+ background-position: 0 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-right-selected-shinyblack  
+{
+ padding-right: 0px;
+ margin-right: -8px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-right-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-down-selected-shinyblack {
+ margin-right: -8px;
+ padding-right: 0px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-down-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-up-selected-shinyblack  {
+ margin-right: -8px;
+ padding-right: 0px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-up-white.png);
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+.jqx-menu-item-arrow-left-selected-shinyblack {
+ padding-right: 0px;
+ padding-left: 5px;
+ width: 17px;
+ height: 17px;
+ background-image: url(images/icon-left-white.png);
+ background-position: 0 50%;
+ background-repeat: no-repeat;
+}
+
+.jqx-menu-item-shinyblack a:link { outline: none; padding: 0px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; color: #fff; text-decoration: none;}
+.jqx-menu-item-shinyblack a:visited { outline: none; padding: 0px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; color: #fff; text-decoration: none;}
+.jqx-menu-item-shinyblack a:hover {
+         text-decoration:none;
+ 		 border-top-color: #5db1e0;
+		 border-left-color: #5db1e0;
+    	 color: #fff;
+    	 padding: 0px;
+    	 outline: none;
+    }   
+   
+.jqx-menu-item-top-shinyblack a:link { outline: none; padding: 0px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; color: #fff; text-decoration: none;}
+.jqx-menu-item-top-shinyblack a:visited { outline: none; padding: 0px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; color: #fff; text-decoration: none;}
+.jqx-menu-item-top-shinyblack a:hover {
+         text-decoration:none; 		
+		 border-top-color: #5db1e0;
+		 border-left-color: #5db1e0;
+    	 color: #fff;
+    	 padding: 0px;
+    	 outline: none;
+}
+.jqx-menu-disabled-shinyblack 
+{
+    color: #aaa;
+    cursor: default;
+}
+.jqx-menu-disabled-shinyblack a:link  { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; cursor: default; color: #aaa; text-decoration: none;}
+.jqx-menu-disabled-shinyblack a:visited { font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; cursor: default; color: #aaa; text-decoration: none;}
+.jqx-menu-disabled-shinyblack a:hover 
+ {
+     cursor: default;
+ }
+ /*jqxNumberInput and jqxMaskedInput Styles*/
+.jqx-input-shinyblack { -webkit-appearance: none; -webkit-border-radius:0px; padding: 0 0 0 0; outline:none; background: #FFFFFF; border: 1px solid #555555; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 13px; }
+.jqx-input-invalid-shinyblack { outline: none; background: #FFFFFF; border: 1px solid #FF0000; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 13px; }
+.jqx-input-content-shinyblack {  -webkit-appearance: none; -webkit-border-radius:0px; padding: 1 1 1 1; resize: none; outline: none; outline-width: 0px; background: #FFFFFF; border: none; font-size: 13px; }
+.jqx-input-disabled-shinyblack {  -webkit-appearance: none; -webkit-border-radius:0px; padding: 1 1 1 1; resize: none; outline: none; outline-width: 0px; color: #aaa; border: none; font-size: 13px; }
+.jqx-input-button-header-shinyblack { cursor:pointer; -webkit-appearance: none; -webkit-border-radius:0px; height: 3px; padding: 0px; outline: none; background:#e8e8e8 url(images/bg_black.png) left center scroll repeat-x;  border: 1px solid #000; }
+.jqx-input-button-innerHeader-shinyblack { cursor:pointer; -webkit-appearance: none; -webkit-border-radius:0px; height: 3px; width: 3px; padding: 0px; outline: none; background: #fff; border: 0px solid #fff; }
+.jqx-input-button-content-shinyblack { text-align: center; vertical-align: middle; cursor:pointer; font-size: 8px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; -webkit-appearance: none; -webkit-border-radius:0px; padding: 0px; outline: none; border-top: 0px solid #000; border-left: 1px solid #000; border-bottom: 1px solid #000; border-right: 1px solid #000; background: #FFFFFF; }
+
+/*jqxTooltip Style*/
+.jqx-tooltip-content-shinyblack { font-family: Verdana,Arial,sans-serif; -moz-border-radius: 0px; -webkit-border-radius: 0px; margin: 0px; border-radius: 0px; padding: 3px 6px 3px 6px; border: 0px solid #555555; border-collapse: collapse; text-align: center; font-weight: normal; color:#fff; background:#e8e8e8 url(images/bg_black.png) left center scroll repeat-x; font-size: 13px; border-spacing: 0px;}
+.jqx-tooltip-header-shinyblack { font-family: Verdana,Arial,sans-serif; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; padding: 3px 6px 3px 6px; border: 0px solid #555555; border-collapse: collapse; background:#e8e8e8 url(images/bg_black.png) left center scroll repeat-x; color:#fff; font-weight: bold; font-size: 13px; border-spacing: 0px;}
+.jqx-tooltip-content-invalid-shinyblack {font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; padding: 3px 6px 3px 6px; border: 0px solid #555555; border-collapse: collapse; text-align: center; font-weight: normal; color:#FFFFFF; background-color: #FF0000; font-size: 13px; border-spacing: 0px;}
+.jqx-tooltip-header-invalid-shinyblack {font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; -moz-border-radius: 0px; -webkit-border-radius: 0px; border-radius: 0px; padding: 3px 6px 3px 6px; border: 0px solid #555555; border-collapse: collapse; background-color: #FF0000; color:#FFFFFF; font-weight: bold; font-size: 13px; border-spacing: 0px;}
+.jqx-tooltip-table-shinyblack{padding: 0px; margin: 0px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 13px; background:#e8e8e8 url(images/bg_black.png) left center scroll repeat-x; border: 1px solid #555555;  border-spacing: 0px;}
+
+/*jqxCalendar Style*/
+.jqx-calendar-shinyblack { -webkit-appearance: none; overflow:hidden; outline:none; background-color: #ffffff; border: 1px solid #555555; margin: 0 0 0 0; cursor: default;}
+.jqx-calendar-row-header-shinyblack { outline:none; background-color: #F2F2F2; border: 0px solid #F2F2F2; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-column-header-shinyblack {outline:none; text-align:right; background-color: #FFFFFF;  border-top: 1px solid #FFFFFF; border-bottom: 1px solid #d9e4f4; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-top-left-header-shinyblack { outline:none; background-color: #f2f2f2; border: 0px solid #f2f2f2; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-title-navigation-shinyblack { margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-title-header-shinyblack {color: #fff; font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; border-bottom: 1px solid #555555; margin: 0 0 0 0; background:#e8e8e8 url(images/bg_black.png) left center scroll repeat-x; }
+.jqx-calendar-title-header-disabled-shinyblack {color: #ccc; font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; border-bottom: 1px solid #c9c9c9; margin: 0 0 0 0; background:#ccc url(images/bg_black.png) left center scroll repeat-x; }
+.jqx-calendar-cell-shinyblack { font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; outline:none; text-align: center; padding: 1px; border: 1px solid #FFFFFF; cursor: pointer; }
+.jqx-calendar-cell-hidden-shinyblack { margin: 0 0 0 0; display:none; cursor: default; }
+.jqx-calendar-cell-weekend-shinyblack { color: #898989;  margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-specialDate-shinyblack { color: #FF0000; background-color: transparent; border: 1px solid #FFFFFF; margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-today-shinyblack { color: #898989; background-color: #ffffdb; border: 1px solid #fdc066; margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-othermonth-shinyblack { color: #898989; margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-hover-shinyblack { color: #fff; background:#000 url(images/bg_blackHover.png) left center scroll repeat-x; border: 1px solid #000; margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-selected-shinyblack { color: #fff; background:#000 url(images/bg_blackPressed.png) left center scroll repeat-x; border: 1px solid #000; margin: 0 0 0 0; cursor: pointer; }
+.jqx-calendar-cell-disabled-shinyblack {overflow:hidden; outline:none; color: #ccc; cursor: default; }
+.jqx-calendar-row-cell-shinyblack { font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; outline:none; text-align:center; color: #777777; border: 1px solid #f2f2f2; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-row-cell-disabled-shinyblack { font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; outline:none; text-align:center; color: #ccc; border: 1px solid #f2f2f2; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-column-cell-shinyblack { font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; overflow:hidden; text-align: center; outline:none; font-weight:normal;  padding: 1px; color: #000000; border: 1px solid #FFFFFF; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-column-cell-disabled-shinyblack { font-size: 13px; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; overflow:hidden; text-align: center; outline:none; font-weight:normal;  padding: 1px; color: #ccc; border: 1px solid #FFFFFF; margin: 0 0 0 0; cursor: default; }
+.jqx-calendar-view-shinyblack {-webkit-appearance: none; outline:none; background-color: #FFFFFF; border: 0px solid #FFFFFF; margin: 0 0 0 0; cursor: default; }
+
+/*jqxExpander and jqxNavigationBar Style*/
+.jqx-expander-shinyblack { overflow: hidden; }
+.jqx-expander-header-shinyblack  {color: #fff; font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; font-size: 13px; overflow: hidden; z-index: 1; padding: 5px; cursor: pointer; margin: 0 0 0 0; background:#000 url(images/bg_black.png) left center scroll repeat-x; height:auto; }
+.jqx-expander-header-toggle-none-shinyblack  { cursor: default; }
+.jqx-expander-content-shinyblack {font-family: Verdana,Arial,sans-serif/*{ffDefault}*/; border-left: 1px solid #000; border-right: 1px solid #000; font-size: 13px; z-index:0; overflow:hidden; text-align:left; background-color: #fdfdfd; vertical-align:middle;}
+.jqx-expander-header-content-shinyblack { text-align:left; float: left; vertical-align:middle;}
+.jqx-expander-header-disabled-shinyblack { margin: 0 0 0 0; background:#cccccc url(images/bg_black.png) left center scroll repeat-x; }
+.jqx-expander-content-disabled-shinyblack { background-color: #f1f1f1;}
+.jqx-expander-disabled-shinyblack { border: 0px solid #ccc; }
+.jqx-expander-header-bottom-shinyblack  {border: 1px solid #000; }
+.jqx-expander-content-top-shinyblack { border-top: 1px solid #000; border-bottom: 0px solid #000; }
+.jqx-expander-header-top-shinyblack {border: 1px solid #000; }
+.jqx-expander-content-bottom-shinyblack  {border-bottom: 1px solid #000; border-top: 0px; }
+.jqx-expander-arrow-shinyblack {margin: 0px; padding: 0px; border: none; outline: none; background-repeat: no-repeat; background-position:center; vertical-align: middle;}
+.jqx-expander-arrow-align-left-shinyblack { float: left; padding-left: 5px; }
+.jqx-expander-arrow-align-right-shinyblack { float: right; padding-right: 5px; }
+.jqx-expander-arrow-top-shinyblack { background-image: url(images/icon-down.png); }
+.jqx-expander-arrow-bottom-shinyblack { background-image: url(images/icon-up.png); }
+.jqx-expander-header-expanded-shinyblack {border: 1px solid #000;  }
+.jqx-expander-content-expanded-shinyblack { }
+.jqx-expander-header-hover-shinyblack {color: #fff; background:#000 url(images/bg_blackHover.png) left center scroll repeat-x; }
+.jqx-navigationbar-shinyblack {border-top: 1px solid #000; margin:0px; padding-bottom:1px; font-size:13px; font-family:Verdana; -webkit-appearance: none; outline:none; overflow:hidden;}
+
+/*jqxPopup Style*/
+.jqx-popup-table-shinyblack{padding: 0px; border: 1px solid #a4bed4;  background: #FFFFFF; border-spacing: 0px;}
+.jqx-popup-content-shinyblack {border: 1px solid #555555; -moz-border-radius: 3px; -webkit-border-radius: 3px; background-color: #FFFFFF; border-radius: 3px; padding: 3px 6px 3px 6px; border-collapse: collapse; text-align: center; font-weight: normal; color:#fff; font-size: 1em; border-spacing: 0px;
+                   background: #FFC5C5C5; /* for non-css3 browsers */
+                   filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFFFF', endColorstr='#FFC5C5C5')"; /* for IE */
+                   -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#FFFFFFFF, endColorstr=#FFC5C5C5)";
+                   background: -webkit-gradient(linear, left top, left bottom, from(#FFF), to(#C5C)); /* for webkit browsers */
+                   background: -moz-linear-gradient(top,  #FFFFFF,  #C5C5C5); /* for firefox 3.6+ */ }
+
+/*jqxListBox Style*/
+.jqx-listbox-shinyblack {-webkit-appearance: none;	outline: none; background-color: #ffffff; border: 1px solid #555555; padding: 0px; margin: 0px; cursor: default;}
+.jqx-listbox-bottomright-shinyblack {background: #555555;}
+.jqx-listitem-state-group-shinyblack
+ {
+     white-space:nowrap; 
+     padding: 2px; 
+     margin: 1px; 
+     border: 1px solid #ffffff; 
+     background: #ffffff;
+     font-family: Verdana,Arial,sans-serif;
+     font-weight: bold;
+     font-size: 15px;
+     text-align: left;
+     outline: none;
+ }
+.jqx-listitem-state-normal-shinyblack
+ {
+     white-space:nowrap; 
+     padding: 3px; 
+     margin: 1px; 
+     border: 1px solid #ffffff; 
+     background: #ffffff;
+     font-family: Verdana,Arial,sans-serif;
+     font-style: normal;
+     font-size: 13px;
+     outline: none;
+     visibility: inherit;
+     display: inherit;
+     text-align: left;
+     overflow: hidden;
+     position: absolute;
+     left: 0;
+     top: 0;
+ }
+.jqx-listitem-state-hover-shinyblack {white-space:nowrap; color: #fff; background:#000 url(images/bg_blackHover.png) left center scroll repeat-x; padding: 3px 3px 2px 3px;  margin: 1px; border: 1px solid #000;}
+.jqx-listitem-state-selected-shinyblack {white-space:nowrap; color: #fff; background:#000 url(images/bg_blackPressed.png) left center scroll repeat-x; padding:  3px 3px 2px 3px; margin: 1px; border: 1px solid #000; }
+.jqx-listitem-state-disabled-shinyblack {white-space:nowrap; padding: 3px;  margin: 1px; border: 1px solid #aaaaaa; color: #AAA;}
+
+/*jqxDropDownList Style*/
+.jqx-dropdownlist-content-shinyblack 
+{
+     color: #fff;
+     padding: 0px;
+     overflow: hidden; 
+     padding-left: 3px; 
+     padding-top: 0px;
+     padding-bottom: 0px;
+     margin: 0px;
+     text-align:left; 
+     vertical-align: middle; 
+     font-family: Verdana,Arial,sans-serif;
+     font-style: normal;
+     font-size: 13px;
+     white-space:nowrap;
+     -webkit-appearance: none;	outline: none; 
+     border: none;
+}
+.jqx-dropdownlist-content-disabled-shinyblack
+{
+     color: #AAA;
+}
+.jqx-dropdownlist-state-normal-shinyblack { -webkit-appearance: none; color: #fff; outline: none; border: 1px solid #000; overflow: hidden; margin: 0 0 0 0; background:#000 url(images/bg_black.png) left center scroll repeat-x; }
+.jqx-dropdownlist-state-hover-shinyblack { color: #fff; overflow: hidden; background:#000 url(images/bg_blackHover.png) left center scroll repeat-x;  border: 1px solid #000; margin: 0 0 0 0; cursor: pointer; }
+.jqx-dropdownlist-state-selected-shinyblack { color: #fff; overflow: hidden; background:#000 url(images/bg_blackPressed.png) left center scroll repeat-x;  border: 1px solid #000; margin: 0 0 0 0; cursor: pointer; }
+.jqx-dropdownlist-state-disabled-shinyblack {white-space:nowrap; padding: 2px 3px 2px 3px;  margin: 1px; background:#ccc; color: #AAA;}
+
+/*jqxScrollBar Style*/
+.jqx-scrollbar-state-normal-shinyblack {background: #555555; padding: 0px; border: 1px solid #555555;}
+.jqx-scrollbar-button-state-normal-shinyblack {margin: 0px; border: 1px solid #555555; background: #555555;}
+.jqx-scrollbar-button-state-hover-shinyblack {margin: 0px; background:#555555 url(images/bg_blackHover.png) left top scroll repeat-x; border: 1px solid #000;}
+.jqx-scrollbar-button-state-pressed-shinyblack {margin: 0px; background:#555555 url(images/bg_blackPressed.png) left top scroll repeat-x; border: 1px solid #000; }
+.jqx-scrollbar-thumb-state-normal-horizontal-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_black.png) left top scroll repeat-x; border: 1px solid #000;}
+.jqx-scrollbar-thumb-state-hover-horizontal-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_blackHover.png) left top scroll repeat-x; border: 1px solid #000;}
+.jqx-scrollbar-thumb-state-pressed-horizontal-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_blackPressed.png) left top scroll repeat-x; border: 1px solid #000; }
+.jqx-scrollbar-thumb-state-normal-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_black_horizontal.png) left top scroll repeat-x; border: 1px solid #000;}
+.jqx-scrollbar-thumb-state-hover-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_blackHover_horizontal.png) left top scroll repeat-x; border: 1px solid #000;}
+.jqx-scrollbar-thumb-state-pressed-shinyblack {margin: 0px; padding: 0px; background:#555555 url(images/bg_blackPressed_horizontal.png) left top scroll repeat-x; border: 1px solid #000; }
+
+/*jqxButton, jqxToggleButton, jqxRepeatButton Style*/
+.jqx-button-shinyblack { border: 1px solid #000; margin: 0 0 0 0; color: #fff; cursor: default; background: url(images/bg_black.png) left center scroll repeat-x; }
+.jqx-fill-state-normal-shinyblack {border: 1px solid #000; background: #000 url(images/bg_black.png) left center scroll repeat-x;}
+.jqx-fill-state-hover-shinyblack { border: 1px solid #000; background: #000 url(images/bg_blackHover.png) left center scroll repeat-x;}
+.jqx-fill-state-pressed-shinyblack {border: 1px solid #000; background: #000 url(images/bg_blackPressed.png) left center scroll repeat-x;}
+.jqx-fill-state-pressedhover-shinyblack {border: 1px solid #000; background: #000 url(images/bg_blackPressed.png) left center scroll repeat-x;}
+.jqx-fill-state-disabled-shinyblack {border: 1px solid #ccc; background: #ccc;}
+
+.jqx-visible-shinyblack { display: block; }
+.jqx-hidden-shinyblack { display: none; }
+.jqx-left-arrow-shinyblack { background:transparent; background-image: url('images/left.png'); cursor: pointer;}
+.jqx-right-arrow-shinyblack { background:transparent; background-image: url('images/right.png'); cursor: pointer;}
+
+.icon-arrow-up-shinyblack { background-image: url('images/icon-up.png'); background-repeat:no-repeat; background-position:center; }
+.icon-arrow-down-shinyblack { background-image: url('images/icon-down.png'); background-repeat:no-repeat;  background-position:center; }
+.icon-arrow-left-shinyblack { background-image: url('images/icon-left.png'); background-repeat:no-repeat;  background-position:center; }
+.icon-arrow-right-shinyblack { background-image: url('images/icon-right.png'); background-repeat:no-repeat; background-position:center; }

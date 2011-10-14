@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\UnidadSolicitante" table="unidad_solicitante">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="codigounidad" type="string" column="codigounidad" length="10"/>
+    <field name="nombreunidad" type="string" column="nombreunidad" length="100"/>
+    <field name="realizaplan" type="boolean" column="realizaplan"/>
+    <field name="realizaacta" type="boolean" column="realizaacta"/>
+    <field name="realizaordencompra" type="boolean" column="realizaordencompra"/>
+    <field name="idUnidadSuperior" type="integer" column="id_unidad_superior"/>
+    <many-to-one field="idNivel" target-entity="Nivel" orphan-removal="">
+      <join-columns>
+        <join-column name="id_nivel" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

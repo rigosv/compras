@@ -6,65 +6,35 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\SubfuenteFinanciamiento
- *
- * @ORM\Table(name="subfuente_financiamiento")
- * @ORM\Entity
  */
-class SubfuenteFinanciamiento
-{
-    /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="subfuente_financiamiento_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
+class SubfuenteFinanciamiento {
 
     /**
      * @var string $codigosubfuente
-     *
-     * @ORM\Column(name="codigosubfuente", type="string", length=3, nullable=false)
      */
     private $codigosubfuente;
 
     /**
      * @var string $descripcionsubfuente
-     *
-     * @ORM\Column(name="descripcionsubfuente", type="string", length=50, nullable=false)
      */
     private $descripcionsubfuente;
 
     /**
-     * @var FuenteFinanciamiento
-     *
-     * @ORM\ManyToOne(targetEntity="FuenteFinanciamiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_fuente_financiamiento", referencedColumnName="id")
-     * })
+     * @var integer $id
      */
-    private $idFuenteFinanciamiento;
-
-
+    private $id;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var Salud\ComprasBundle\Entity\FuenteFinanciamiento
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $idFuenteFinanciamiento;
 
     /**
      * Set codigosubfuente
      *
      * @param string $codigosubfuente
      */
-    public function setCodigosubfuente($codigosubfuente)
-    {
+    public function setCodigosubfuente($codigosubfuente) {
         $this->codigosubfuente = $codigosubfuente;
     }
 
@@ -73,8 +43,7 @@ class SubfuenteFinanciamiento
      *
      * @return string 
      */
-    public function getCodigosubfuente()
-    {
+    public function getCodigosubfuente() {
         return $this->codigosubfuente;
     }
 
@@ -83,8 +52,7 @@ class SubfuenteFinanciamiento
      *
      * @param string $descripcionsubfuente
      */
-    public function setDescripcionsubfuente($descripcionsubfuente)
-    {
+    public function setDescripcionsubfuente($descripcionsubfuente) {
         $this->descripcionsubfuente = $descripcionsubfuente;
     }
 
@@ -93,9 +61,17 @@ class SubfuenteFinanciamiento
      *
      * @return string 
      */
-    public function getDescripcionsubfuente()
-    {
+    public function getDescripcionsubfuente() {
         return $this->descripcionsubfuente;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
     }
 
     /**
@@ -103,8 +79,7 @@ class SubfuenteFinanciamiento
      *
      * @param Salud\ComprasBundle\Entity\FuenteFinanciamiento $idFuenteFinanciamiento
      */
-    public function setIdFuenteFinanciamiento(\Salud\ComprasBundle\Entity\FuenteFinanciamiento $idFuenteFinanciamiento)
-    {
+    public function setIdFuenteFinanciamiento(\Salud\ComprasBundle\Entity\FuenteFinanciamiento $idFuenteFinanciamiento) {
         $this->idFuenteFinanciamiento = $idFuenteFinanciamiento;
     }
 
@@ -113,12 +88,12 @@ class SubfuenteFinanciamiento
      *
      * @return Salud\ComprasBundle\Entity\FuenteFinanciamiento 
      */
-    public function getIdFuenteFinanciamiento()
-    {
+    public function getIdFuenteFinanciamiento() {
         return $this->idFuenteFinanciamiento;
     }
-    
+
     public function __toString() {
         return $this->descripcionsubfuente;
     }
+
 }

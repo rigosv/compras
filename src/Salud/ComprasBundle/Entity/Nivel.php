@@ -6,47 +6,24 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\Nivel
- *
- * @ORM\Table(name="nivel")
- * @ORM\Entity
  */
 class Nivel
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="nivel_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigonivel
-     *
-     * @ORM\Column(name="codigonivel", type="string", length=2, nullable=false)
      */
     private $codigonivel;
 
     /**
      * @var string $descripcionnivel
-     *
-     * @ORM\Column(name="descripcionnivel", type="string", length=30, nullable=false)
      */
     private $descripcionnivel;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var integer $id
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
 
     /**
      * Set codigonivel
@@ -86,5 +63,15 @@ class Nivel
     public function getDescripcionnivel()
     {
         return $this->descripcionnivel;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

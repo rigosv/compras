@@ -6,47 +6,24 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\UnidadMedida
- *
- * @ORM\Table(name="unidad_medida")
- * @ORM\Entity
  */
 class UnidadMedida
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="unidad_medida_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigounidadmedida
-     *
-     * @ORM\Column(name="codigounidadmedida", type="string", length=3, nullable=false)
      */
     private $codigounidadmedida;
 
     /**
      * @var string $descripcionunidadmedida
-     *
-     * @ORM\Column(name="descripcionunidadmedida", type="string", length=50, nullable=false)
      */
     private $descripcionunidadmedida;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var integer $id
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
 
     /**
      * Set codigounidadmedida
@@ -87,8 +64,14 @@ class UnidadMedida
     {
         return $this->descripcionunidadmedida;
     }
-    
-    public function __toString() {
-        return $this->descripcionunidadmedida;
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

@@ -6,109 +6,64 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\Requerimiento
- *
- * @ORM\Table(name="requerimiento")
- * @ORM\Entity
  */
 class Requerimiento
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="requerimiento_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $numerorequerimiento
-     *
-     * @ORM\Column(name="numerorequerimiento", type="string", length=5, nullable=false)
      */
     private $numerorequerimiento;
 
     /**
      * @var string $numerorequerimientoXuni
-     *
-     * @ORM\Column(name="numerorequerimiento_xuni", type="string", length=3, nullable=false)
      */
     private $numerorequerimientoXuni;
 
     /**
      * @var string $numeroDictamentf
-     *
-     * @ORM\Column(name="numero_dictamentf", type="string", length=4, nullable=true)
      */
     private $numeroDictamentf;
 
     /**
      * @var date $fecharequerimiento
-     *
-     * @ORM\Column(name="fecharequerimiento", type="date", nullable=false)
      */
     private $fecharequerimiento;
 
     /**
      * @var decimal $montorequerimiento
-     *
-     * @ORM\Column(name="montorequerimiento", type="decimal", nullable=false)
      */
     private $montorequerimiento;
 
     /**
      * @var boolean $finalizado
-     *
-     * @ORM\Column(name="finalizado", type="boolean", nullable=false)
      */
     private $finalizado;
 
     /**
      * @var text $observaciones
-     *
-     * @ORM\Column(name="observaciones", type="text", nullable=true)
      */
     private $observaciones;
 
     /**
      * @var date $fechaEntregado
-     *
-     * @ORM\Column(name="fecha_entregado", type="date", nullable=true)
      */
     private $fechaEntregado;
 
     /**
-     * @var PeriodoFiscal
-     *
-     * @ORM\ManyToOne(targetEntity="PeriodoFiscal")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_periodo_fiscal", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\PeriodoFiscal
      */
     private $idPeriodoFiscal;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_solicitante", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadSolicitante;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set numerorequerimiento
@@ -268,6 +223,16 @@ class Requerimiento
     public function getFechaEntregado()
     {
         return $this->fechaEntregado;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

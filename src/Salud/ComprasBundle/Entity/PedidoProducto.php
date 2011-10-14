@@ -6,64 +6,34 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\PedidoProducto
- *
- * @ORM\Table(name="pedido_producto")
- * @ORM\Entity
  */
 class PedidoProducto
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="pedido_producto_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $numeropedido
-     *
-     * @ORM\Column(name="numeropedido", type="string", length=2, nullable=false)
      */
     private $numeropedido;
 
     /**
      * @var string $mespedido
-     *
-     * @ORM\Column(name="mespedido", type="string", length=2, nullable=true)
      */
     private $mespedido;
 
     /**
      * @var float $cantidad
-     *
-     * @ORM\Column(name="cantidad", type="float", nullable=false)
      */
     private $cantidad;
 
     /**
-     * @var LineaPlan
-     *
-     * @ORM\ManyToOne(targetEntity="LineaPlan")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_linea_plan", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\LineaPlan
      */
     private $idLineaPlan;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set numeropedido
@@ -123,6 +93,16 @@ class PedidoProducto
     public function getCantidad()
     {
         return $this->cantidad;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

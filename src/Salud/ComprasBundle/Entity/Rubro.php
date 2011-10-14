@@ -6,47 +6,24 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\Rubro
- *
- * @ORM\Table(name="rubro")
- * @ORM\Entity
  */
 class Rubro
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="rubro_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigorubro
-     *
-     * @ORM\Column(name="codigorubro", type="string", length=2, nullable=false)
      */
     private $codigorubro;
 
     /**
      * @var string $descripcionrubro
-     *
-     * @ORM\Column(name="descripcionrubro", type="string", length=25, nullable=false)
      */
     private $descripcionrubro;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var integer $id
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
 
     /**
      * Set codigorubro
@@ -86,5 +63,15 @@ class Rubro
     public function getDescripcionrubro()
     {
         return $this->descripcionrubro;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }

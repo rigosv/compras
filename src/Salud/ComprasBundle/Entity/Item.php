@@ -3,111 +3,62 @@
 namespace Salud\ComprasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Salud\ComprasBundle\Entity\Item
- *
- * @ORM\Table(name="item")
- * @ORM\Entity
  */
 class Item
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="item_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var text $descripcionitem
-     *
-     * @ORM\Column(name="descripcionitem", type="text", nullable=false)
      */
     private $descripcionitem;
 
     /**
      * @var boolean $autorizado
-     *
-     * @ORM\Column(name="autorizado", type="boolean", nullable=false)
      */
     private $autorizado;
 
     /**
      * @var boolean $descontinuado
-     *
-     * @ORM\Column(name="descontinuado", type="boolean", nullable=false)
      */
     private $descontinuado;
 
     /**
      * @var decimal $preciounitario
-     *
-     * @ORM\Column(name="preciounitario", type="decimal", nullable=true)
-     * 
-     * @Assert\NotBlank(message="Ingresa un valor")
      */
     private $preciounitario;
 
     /**
      * @var boolean $bloqueado
-     *
-     * @ORM\Column(name="bloqueado", type="boolean", nullable=true)
      */
     private $bloqueado;
 
     /**
      * @var text $observaciones
-     *
-     * @ORM\Column(name="observaciones", type="text", nullable=true)
      */
     private $observaciones;
 
     /**
-     * @var Especifico
-     *
-     * @ORM\ManyToOne(targetEntity="Especifico")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_especifico", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\Especifico
      */
     private $idEspecifico;
 
     /**
-     * @var Especifico
-     *
-     * @ORM\ManyToOne(targetEntity="Especifico")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_especifico_onu", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\Especifico
      */
     private $idEspecificoOnu;
 
     /**
-     * @var UnidadMedida
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadMedida")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_medida", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadMedida
      */
     private $idUnidadMedida;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set descripcionitem
@@ -230,6 +181,16 @@ class Item
     }
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set idEspecifico
      *
      * @param Salud\ComprasBundle\Entity\Especifico $idEspecifico
@@ -287,13 +248,5 @@ class Item
     public function getIdUnidadMedida()
     {
         return $this->idUnidadMedida;
-    }
-    
-    /**
-     *
-     * @Assert\True(message="Precio debe ser mayor que cero")
-     */
-    public function isPrecioUnitarioPositivo() {
-        return ($this->preciounitario > 0);
     }
 }

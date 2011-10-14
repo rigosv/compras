@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\LineaRequerimiento" table="linea_requerimiento">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="preciounitario" type="decimal" column="preciounitario"/>
+    <field name="especificaciones" type="text" column="especificaciones"/>
+    <field name="cantidad" type="float" column="cantidad"/>
+    <many-to-one field="idItem" target-entity="Item" orphan-removal="">
+      <join-columns>
+        <join-column name="id_item" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idRequerimiento" target-entity="Requerimiento" orphan-removal="">
+      <join-columns>
+        <join-column name="id_requerimiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadMedida" target-entity="UnidadMedida" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_medida" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

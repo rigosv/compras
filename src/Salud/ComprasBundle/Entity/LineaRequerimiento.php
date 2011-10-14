@@ -6,84 +6,44 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\LineaRequerimiento
- *
- * @ORM\Table(name="linea_requerimiento")
- * @ORM\Entity
  */
 class LineaRequerimiento
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="linea_requerimiento_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var decimal $preciounitario
-     *
-     * @ORM\Column(name="preciounitario", type="decimal", nullable=false)
      */
     private $preciounitario;
 
     /**
      * @var text $especificaciones
-     *
-     * @ORM\Column(name="especificaciones", type="text", nullable=true)
      */
     private $especificaciones;
 
     /**
      * @var float $cantidad
-     *
-     * @ORM\Column(name="cantidad", type="float", nullable=false)
      */
     private $cantidad;
 
     /**
-     * @var Item
-     *
-     * @ORM\ManyToOne(targetEntity="Item")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_item", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\Item
      */
     private $idItem;
 
     /**
-     * @var Requerimiento
-     *
-     * @ORM\ManyToOne(targetEntity="Requerimiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_requerimiento", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\Requerimiento
      */
     private $idRequerimiento;
 
     /**
-     * @var UnidadMedida
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadMedida")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_medida", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadMedida
      */
     private $idUnidadMedida;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set preciounitario
@@ -143,6 +103,16 @@ class LineaRequerimiento
     public function getCantidad()
     {
         return $this->cantidad;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

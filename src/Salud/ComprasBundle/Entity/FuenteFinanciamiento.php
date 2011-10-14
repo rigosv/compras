@@ -6,54 +6,28 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\FuenteFinanciamiento
- *
- * @ORM\Table(name="fuente_financiamiento")
- * @ORM\Entity
  */
 class FuenteFinanciamiento {
 
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="fuente_financiamiento_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigofuente
-     *
-     * @ORM\Column(name="codigofuente", type="string", length=3, nullable=false)
      */
     private $codigofuente;
 
     /**
      * @var string $descripcionfuente
-     *
-     * @ORM\Column(name="descripcionfuente", type="string", length=100, nullable=false)
      */
     private $descripcionfuente;
 
-        /**
-     * @var OrigenFinanciamiento
-     *
-     * @ORM\ManyToOne(targetEntity="OrigenFinanciamiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_origen_financiamiento", referencedColumnName="id")
-     * })
+    /**
+     * @var integer $id
      */
-    private $idOrigenFinanciamiento;
+    private $id;
 
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var Salud\ComprasBundle\Entity\OrigenFinanciamiento
      */
-    public function getId() {
-        return $this->id;
-    }
+    private $idOrigenFinanciamiento;
 
     /**
      * Set codigofuente
@@ -92,18 +66,27 @@ class FuenteFinanciamiento {
     }
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId() {
+        return $this->id;
+    }
+
+    /**
      * Set idOrigenFinanciamiento
      *
-     * @param integer $idOrigenFinanciamiento
+     * @param Salud\ComprasBundle\Entity\OrigenFinanciamiento $idOrigenFinanciamiento
      */
-    public function setIdOrigenFinanciamiento($idOrigenFinanciamiento) {
+    public function setIdOrigenFinanciamiento(\Salud\ComprasBundle\Entity\OrigenFinanciamiento $idOrigenFinanciamiento) {
         $this->idOrigenFinanciamiento = $idOrigenFinanciamiento;
     }
 
     /**
      * Get idOrigenFinanciamiento
      *
-     * @return integer 
+     * @return Salud\ComprasBundle\Entity\OrigenFinanciamiento 
      */
     public function getIdOrigenFinanciamiento() {
         return $this->idOrigenFinanciamiento;

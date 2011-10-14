@@ -6,179 +6,114 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\Usuario
- *
- * @ORM\Table(name="usuario")
- * @ORM\Entity
  */
 class Usuario
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="usuario_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var boolean $estaactivo
-     *
-     * @ORM\Column(name="estaactivo", type="boolean", nullable=false)
      */
     private $estaactivo;
 
     /**
      * @var string $email
-     *
-     * @ORM\Column(name="email", type="string", length=150, nullable=true)
      */
     private $email;
 
     /**
      * @var string $username
-     *
-     * @ORM\Column(name="username", type="string", length=255, nullable=false)
      */
     private $username;
 
     /**
      * @var string $usernameCanonical
-     *
-     * @ORM\Column(name="username_canonical", type="string", length=255, nullable=false)
      */
     private $usernameCanonical;
 
     /**
      * @var string $emailCanonical
-     *
-     * @ORM\Column(name="email_canonical", type="string", length=255, nullable=false)
      */
     private $emailCanonical;
 
     /**
      * @var boolean $enabled
-     *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
      */
     private $enabled;
 
     /**
      * @var string $algorithm
-     *
-     * @ORM\Column(name="algorithm", type="string", length=255, nullable=false)
      */
     private $algorithm;
 
     /**
      * @var string $salt
-     *
-     * @ORM\Column(name="salt", type="string", length=255, nullable=false)
      */
     private $salt;
 
     /**
      * @var string $password
-     *
-     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     private $password;
 
     /**
      * @var datetime $lastLogin
-     *
-     * @ORM\Column(name="last_login", type="datetime", nullable=true)
      */
     private $lastLogin;
 
     /**
      * @var boolean $locked
-     *
-     * @ORM\Column(name="locked", type="boolean", nullable=false)
      */
     private $locked;
 
     /**
      * @var boolean $expired
-     *
-     * @ORM\Column(name="expired", type="boolean", nullable=false)
      */
     private $expired;
 
     /**
      * @var datetime $expiresAt
-     *
-     * @ORM\Column(name="expires_at", type="datetime", nullable=true)
      */
     private $expiresAt;
 
     /**
      * @var string $confirmationToken
-     *
-     * @ORM\Column(name="confirmation_token", type="string", length=255, nullable=true)
      */
     private $confirmationToken;
 
     /**
      * @var datetime $passwordRequestedAt
-     *
-     * @ORM\Column(name="password_requested_at", type="datetime", nullable=true)
      */
     private $passwordRequestedAt;
 
     /**
      * @var array $roles
-     *
-     * @ORM\Column(name="roles", type="array", nullable=false)
      */
     private $roles;
 
     /**
      * @var boolean $credentialsExpired
-     *
-     * @ORM\Column(name="credentials_expired", type="boolean", nullable=false)
      */
     private $credentialsExpired;
 
     /**
      * @var datetime $credentialsExpireAt
-     *
-     * @ORM\Column(name="credentials_expire_at", type="datetime", nullable=true)
      */
     private $credentialsExpireAt;
 
     /**
-     * @var PerfilUsuario
-     *
-     * @ORM\ManyToOne(targetEntity="PerfilUsuario")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_perfil_usuario", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\PerfilUsuario
      */
     private $idPerfilUsuario;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_solicitante", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadSolicitante;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set estaactivo
@@ -538,6 +473,16 @@ class Usuario
     public function getCredentialsExpireAt()
     {
         return $this->credentialsExpireAt;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

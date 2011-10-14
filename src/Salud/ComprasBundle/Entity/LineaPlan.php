@@ -6,77 +6,39 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\LineaPlan
- *
- * @ORM\Table(name="linea_plan")
- * @ORM\Entity
  */
 class LineaPlan
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="linea_plan_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var decimal $preciounitario
-     *
-     * @ORM\Column(name="preciounitario", type="decimal", nullable=false)
      */
     private $preciounitario;
 
     /**
      * @var integer $cantidadPedido
-     *
-     * @ORM\Column(name="cantidad_pedido", type="integer", nullable=true)
      */
     private $cantidadPedido;
 
     /**
-     * @var Item
-     *
-     * @ORM\ManyToOne(targetEntity="Item")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_item", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\Item
      */
     private $idItem;
 
     /**
-     * @var PlanCompras
-     *
-     * @ORM\ManyToOne(targetEntity="PlanCompras")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_plan_compras", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\PlanCompras
      */
     private $idPlanCompras;
 
     /**
-     * @var UnidadMedida
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadMedida")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_medida", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadMedida
      */
     private $idUnidadMedida;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set preciounitario
@@ -116,6 +78,16 @@ class LineaPlan
     public function getCantidadPedido()
     {
         return $this->cantidadPedido;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

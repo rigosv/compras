@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\PlanCompras" table="plan_compras"
+    repository-class="Salud\ComprasBundle\Repository\PlanComprasRepository"
+  >
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="numeroconvenio" type="string" column="numeroconvenio" length="20"/>
+    <field name="montoplan" type="decimal" column="montoplan"/>
+    <field name="autorizado" type="boolean" column="autorizado"/>
+    <field name="fechaAutorizacion" type="date" column="fecha_autorizacion"/>
+    <field name="enviado" type="boolean" column="enviado"/>
+    <field name="fechaEnvio" type="date" column="fecha_envio"/>
+    <field name="consolidado" type="boolean" column="consolidado"/>
+    <field name="modificacionesHasta" type="date" column="modificaciones_hasta"/>
+    <field name="permisos" type="string" column="permisos" length="5"/>
+    <field name="numeroplan" type="string" column="numeroplan" length="4"/>
+    <many-to-one field="idFuenteFinanciamiento" target-entity="FuenteFinanciamiento" orphan-removal="">
+      <join-columns>
+        <join-column name="id_fuente_financiamiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPeriodoFiscal" target-entity="PeriodoFiscal" orphan-removal="">
+      <join-columns>
+        <join-column name="id_periodo_fiscal" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idSubfuenteFinanciamiento" target-entity="SubfuenteFinanciamiento" orphan-removal="">
+      <join-columns>
+        <join-column name="id_subfuente_financiamiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadFinanciadora" target-entity="UnidadSolicitante" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_financiadora" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadSolicitante" target-entity="UnidadSolicitante" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_solicitante" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

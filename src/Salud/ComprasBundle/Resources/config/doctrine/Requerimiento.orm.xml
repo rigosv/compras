@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\Requerimiento" table="requerimiento">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="numerorequerimiento" type="string" column="numerorequerimiento" length="5"/>
+    <field name="numerorequerimientoXuni" type="string" column="numerorequerimiento_xuni" length="3"/>
+    <field name="numeroDictamentf" type="string" column="numero_dictamentf" length="4"/>
+    <field name="fecharequerimiento" type="date" column="fecharequerimiento"/>
+    <field name="montorequerimiento" type="decimal" column="montorequerimiento"/>
+    <field name="finalizado" type="boolean" column="finalizado"/>
+    <field name="observaciones" type="text" column="observaciones"/>
+    <field name="fechaEntregado" type="date" column="fecha_entregado"/>
+    <many-to-one field="idPeriodoFiscal" target-entity="PeriodoFiscal" orphan-removal="">
+      <join-columns>
+        <join-column name="id_periodo_fiscal" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadSolicitante" target-entity="UnidadSolicitante" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_solicitante" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

@@ -5,11 +5,18 @@ Gesti&oacute;n de Compras Institucional
 {% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/saludcompras/css/main.css')}}" type="text/css" media="all" ></link>
-    <link href="{{ asset('bundles/jquery/sexyDropDownMenu/styles.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('bundles/jquery/jqwidgets/styles/jqx.shinyblack.css') }}" rel="stylesheet" type="text/css" />
 {% endblock %}
 {% block javascripts %}
     <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery-1.6.4.min.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('bundles/jquery/sexyDropDownMenu/menu.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jqwidgets/jqxcore.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jqwidgets/jqxmenu.js') }}" ></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+                // Create a jqxMenu
+                $("#jqxMenu").jqxMenu({theme:'shinyblack', animationHideDelay: 900, showTopLevelArrows: true});
+         })
+    </script>
 {% endblock %}
 {% block body %}
     <div id="symfony-wrapper">
@@ -28,10 +35,7 @@ Gesti&oacute;n de Compras Institucional
         {% endif %}
 
         {% block content_header %}
-            <ul id="menu">
-                {% include 'SaludComprasBundle::menu.html.twig' %}
-            </ul>
-
+            {% include 'SaludComprasBundle::menu.html.twig' %}       
             <div style="clear: both"></div>
         {% endblock %}
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\TechoPresupuestario" table="techo_presupuestario">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="montoasignado" type="decimal" column="montoasignado"/>
+    <many-to-one field="idFuenteFinanciamiento" target-entity="FuenteFinanciamiento" orphan-removal="">
+      <join-columns>
+        <join-column name="id_fuente_financiamiento" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idPeriodoFiscal" target-entity="PeriodoFiscal" orphan-removal="">
+      <join-columns>
+        <join-column name="id_periodo_fiscal" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadFinanciadora" target-entity="UnidadSolicitante" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_financiadora" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadSolicitante" target-entity="UnidadSolicitante" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_solicitante" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

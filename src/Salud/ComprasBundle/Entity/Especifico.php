@@ -6,67 +6,34 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\Especifico
- *
- * @ORM\Table(name="especifico")
- * @ORM\Entity(repositoryClass="Salud\ComprasBundle\Repository\EspecificoRepository")
  */
 class Especifico
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="especifico_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigoespecifico
-     *
-     * @ORM\Column(name="codigoespecifico", type="string", length=8, nullable=false)
      */
     private $codigoespecifico;
 
     /**
      * @var string $descripcionespecifico
-     *
-     * @ORM\Column(name="descripcionespecifico", type="string", length=500, nullable=false)
      */
     private $descripcionespecifico;
 
     /**
-     * @var CatalogoProducto
-     *
-     * @ORM\ManyToOne(targetEntity="CatalogoProducto")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_catalogo_producto", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\CatalogoProducto
      */
     private $idCatalogoProducto;
 
     /**
-     * @var Rubro
-     *
-     * @ORM\ManyToOne(targetEntity="Rubro")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_rubro", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\Rubro
      */
     private $idRubro;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set codigoespecifico
@@ -109,6 +76,16 @@ class Especifico
     }
 
     /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
      * Set idCatalogoProducto
      *
      * @param Salud\ComprasBundle\Entity\CatalogoProducto $idCatalogoProducto
@@ -146,9 +123,5 @@ class Especifico
     public function getIdRubro()
     {
         return $this->idRubro;
-    }
-    
-    public function __toString() {
-        return '('.$this->codigoespecifico .') ' .$this->descripcionespecifico;
     }
 }

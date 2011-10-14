@@ -6,80 +6,39 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\TechoPresupuestario
- *
- * @ORM\Table(name="techo_presupuestario")
- * @ORM\Entity
  */
 class TechoPresupuestario
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="techo_presupuestario_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var decimal $montoasignado
-     *
-     * @ORM\Column(name="montoasignado", type="decimal", nullable=false)
      */
     private $montoasignado;
 
     /**
-     * @var FuenteFinanciamiento
-     *
-     * @ORM\ManyToOne(targetEntity="FuenteFinanciamiento")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_fuente_financiamiento", referencedColumnName="id")
-     * })
+     * @var integer $id
+     */
+    private $id;
+
+    /**
+     * @var Salud\ComprasBundle\Entity\FuenteFinanciamiento
      */
     private $idFuenteFinanciamiento;
 
     /**
-     * @var PeriodoFiscal
-     *
-     * @ORM\ManyToOne(targetEntity="PeriodoFiscal")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_periodo_fiscal", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\PeriodoFiscal
      */
     private $idPeriodoFiscal;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_financiadora", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadFinanciadora;
 
     /**
-     * @var UnidadSolicitante
-     *
-     * @ORM\ManyToOne(targetEntity="UnidadSolicitante")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_unidad_solicitante", referencedColumnName="id")
-     * })
+     * @var Salud\ComprasBundle\Entity\UnidadSolicitante
      */
     private $idUnidadSolicitante;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
     /**
      * Set montoasignado
@@ -99,6 +58,16 @@ class TechoPresupuestario
     public function getMontoasignado()
     {
         return $this->montoasignado;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 
     /**

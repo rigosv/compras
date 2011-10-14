@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="Salud\ComprasBundle\Entity\Item" table="item">
+    <change-tracking-policy>DEFERRED_IMPLICIT</change-tracking-policy>
+    <id name="id" type="integer" column="id">
+      <generator strategy="SEQUENCE"/>
+    </id>
+    <field name="descripcionitem" type="text" column="descripcionitem"/>
+    <field name="autorizado" type="boolean" column="autorizado"/>
+    <field name="descontinuado" type="boolean" column="descontinuado"/>
+    <field name="preciounitario" type="decimal" column="preciounitario"/>
+    <field name="bloqueado" type="boolean" column="bloqueado"/>
+    <field name="observaciones" type="text" column="observaciones"/>
+    <many-to-one field="idEspecifico" target-entity="Especifico" orphan-removal="">
+      <join-columns>
+        <join-column name="id_especifico" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idEspecificoOnu" target-entity="Especifico" orphan-removal="">
+      <join-columns>
+        <join-column name="id_especifico_onu" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <many-to-one field="idUnidadMedida" target-entity="UnidadMedida" orphan-removal="">
+      <join-columns>
+        <join-column name="id_unidad_medida" referenced-column-name="id"/>
+      </join-columns>
+    </many-to-one>
+    <lifecycle-callbacks/>
+  </entity>
+</doctrine-mapping>

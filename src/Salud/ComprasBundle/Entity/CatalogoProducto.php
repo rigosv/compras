@@ -6,47 +6,24 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Salud\ComprasBundle\Entity\CatalogoProducto
- *
- * @ORM\Table(name="catalogo_producto")
- * @ORM\Entity
  */
 class CatalogoProducto
 {
     /**
-     * @var integer $id
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="catalogo_producto_id_seq", allocationSize="1", initialValue="1")
-     */
-    private $id;
-
-    /**
      * @var string $codigocatalogo
-     *
-     * @ORM\Column(name="codigocatalogo", type="string", length=2, nullable=false)
      */
     private $codigocatalogo;
 
     /**
      * @var string $descripcioncatalogo
-     *
-     * @ORM\Column(name="descripcioncatalogo", type="string", length=60, nullable=false)
      */
     private $descripcioncatalogo;
 
-
-
     /**
-     * Get id
-     *
-     * @return integer 
+     * @var integer $id
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $id;
+
 
     /**
      * Set codigocatalogo
@@ -86,5 +63,15 @@ class CatalogoProducto
     public function getDescripcioncatalogo()
     {
         return $this->descripcioncatalogo;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
     }
 }
