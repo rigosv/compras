@@ -2,9 +2,14 @@
 {% extends "SaludComprasBundle::layout.html.twig" %}
 {% form_theme edit_form 'SaludComprasBundle::fields.html.twig' %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/saludcompras/js/PlanCompras/edit.js') }}" ></script>
+{% endblock %}
+
 {% block content %}
 <h1>PlanCompras edit</h1>
-
+<input type='hidden' id="front_controller" value="{{ front_controller}}" />
 <form action="{{ path('plancompras_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
     {{ form_widget(edit_form) }}
     <p>
