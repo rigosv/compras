@@ -65,11 +65,14 @@ class PlanComprasController extends Controller
     public function newAction()
     {
         $entity = new PlanCompras();
+        $ff = new PlanComprasType();
+        
         $form   = $this->createForm(new PlanComprasType(), $entity);
 
         return array(
             'entity' => $entity,
-            'form'   => $form->createView()
+            'form'   => $form->createView(),
+            'front_controller' => $this->getRequest()->getScriptName()
         );
     }
 

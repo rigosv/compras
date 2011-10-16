@@ -9,22 +9,34 @@ class PlanComprasType extends AbstractType
 {
     public function buildForm(FormBuilder $builder, array $options)
     {
+        $fuente = $options['data']->getIdFuenteFinanciamiento();
+       
         $builder
-            ->add('numeroconvenio')
-            ->add('montoplan')
-            ->add('autorizado')
-            ->add('fechaAutorizacion')
-            ->add('enviado')
-            ->add('fechaEnvio')
-            ->add('consolidado')
-            ->add('modificacionesHasta')
-            ->add('permisos')
-            ->add('numeroplan')
-            ->add('idFuenteFinanciamiento')
-            ->add('idPeriodoFiscal')
-            ->add('idSubfuenteFinanciamiento')
-            ->add('idUnidadFinanciadora')
-            ->add('idUnidadSolicitante')
+            ->add('numeroplan','text', array('label'=>'Número de plan') )
+          ->add('numeroconvenio', 'text', array('label'=> 'Número de convenio',
+                                    'required'=>false))
+          ->add('idFuenteFinanciamiento', 'entity', array('label'=>'Fuente Financiamiento',
+                        'class'=>'SaludComprasBundle:FuenteFinanciamiento',
+                        'property'=>'descripcionfuente'))
+           ->add('idSubfuenteFinanciamiento', 'entity', 
+                    array('label'=>'Subfuente Financiamiento',
+                        'class'=>'SaludComprasBundle:SubfuenteFinanciamiento',
+                        'query_builder'=>function($repository) use ($fuente){                            
+                            return $repository->createQueryBuilder('sf')
+                                    ->where("sf.idFuenteFinanciamiento = :fuente")
+                                    ->orderBy("sf.descripcionsubfuente")
+                                    ->setParameter ('fuente', $fuente);
+                                    ;
+                        }))
+            ->add('idPeriodoFiscal', 'entity', array('label'=>'Periodo Fiscal',
+                        'class'=>'SaludComprasBundle:PeriodoFiscal',
+                        'property'=>'aniofiscal'))            
+            ->add('idUnidadSolicitante', 'entity', array('label'=>'Unidad Solicitante',
+                        'class'=>'SaludComprasBundle:UnidadSolicitante',
+                        'property'=>'nombreunidad DESC'))
+            ->add('idUnidadFinanciadora', 'entity', array('label'=>'Unidad Financiadora',
+                        'class'=>'SaludComprasBundle:UnidadSolicitante',
+                        'property'=>'nombreunidad'))
         ;
     }
 
