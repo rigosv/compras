@@ -3,9 +3,10 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.2.0/js/i18n/grid.locale-es.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.2.0/js/jquery.jqGrid.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/js/i18n/grid.locale-es.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/js/jquery.jqGrid.min.js') }}" ></script>
     <script type="text/javascript" src="{{ asset('bundles/jquery/jQueryUI/js/jquery-ui-1.8.16.custom.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/saludcompras/js/PlanCompras/detalle.js') }}" ></script>
 {% endblock %}
 
 {% block stylesheets%}
@@ -66,7 +67,7 @@
     </li>    
 </ul>
 
-<table id="detalle_plan"><tr><td/></tr></table> 
+<table id="detalle_plan"></table> 
 <div id="toolbar1"></div>
 <div id='pager' ></div>
 <DIV id="botones" >
