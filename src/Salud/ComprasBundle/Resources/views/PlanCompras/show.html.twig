@@ -65,4 +65,18 @@
         </a>
     </li>    
 </ul>
+
+<table id="detalle_plan"><tr><td/></tr></table> 
+<div id="toolbar1"></div>
+<div id='pager' ></div>
+<DIV id="botones" >
+   <BUTTON id="add_button">Agregar</button>
+   <BUTTON id="edit_button">Editar</button>
+   <BUTTON id="delete_button">Borrar</button>
+</div>
+
+<div id='data_control'>
+    <input type="hidden" value="{{front_controller}}" name="front_controller" id="front_controller" />
+    <input type="hidden" value="{{entity.id}}" name="idPlan" id="id_plan" />
+</div>
 {% endblock %}
