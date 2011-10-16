@@ -1,6 +1,19 @@
 {# src/Salud/ComprasBundle/Resources/views/PlanCompras/show.html.twig #} 
 {% extends 'SaludComprasBundle::layout.html.twig' %} 
 
+{% block javascripts %}
+    {{ parent() }}
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.2.0/js/i18n/grid.locale-es.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/js/jquery.jqGrid-4.2.0/js/jquery.jqGrid.min.js') }}" ></script>
+    <script type="text/javascript" src="{{ asset('bundles/jquery/jQueryUI/js/jquery-ui-1.8.16.custom.min.js') }}" ></script>
+{% endblock %}
+
+{% block stylesheets%}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/css/ui.jqgrid.css')}}" type="text/css" media="all" ></link>
+    <link rel="stylesheet" href="{{ asset('bundles/jquery/jQueryUI/css/redmond/jquery-ui-1.8.16.custom.css')}}" type="text/css" media="all" ></link>
+{% endblock %}
+
 {% block content %} 
 <table > 
     <tr> 
