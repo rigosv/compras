@@ -44,18 +44,19 @@ class PlanComprasController extends Controller
     {
         $em = $this->getDoctrine()->getEntityManager();
 
-        $entity = $em->getRepository('SaludComprasBundle:PlanCompras')->find($id);
+        $repository = $em->getRepository('SaludComprasBundle:PlanCompras');
+        $entity = $repository->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find PlanCompras entity.');
         }
 
-        $deleteForm = $this->createDeleteForm($id);
+        $detalle = $repository->getDetallePlan($id)->getResult();
 
         return array(
             'entity'      => $entity,
-            'delete_form' => $deleteForm->createView(),
-            'front_controller' => $this->getRequest()->getScriptName()  
+            'front_controller' => $this->getRequest()->getScriptName(),
+            'detalle' => $detalle
             );
     }
 
@@ -209,30 +210,4 @@ class PlanComprasController extends Controller
         ;
     }
     
-    /**
-    * @Route("/{id_plan}/detalle", name="plancompras_detalle", requirements={"id_plan"= "\d+"})
-    */
-    public function detallePlanAction($id_plan) {     
-        $em = $this->getDoctrine()->getEntityManager();
-        $detalle = $em->getRepository('SaludComprasBundle:LineaPlan')
-                ->getDetallePlan($id_plan);
-
-        $detalle_array = $detalle->getArrayResult();
-        $total_records = count($detalle_array);
-
-        $output = array(); $i = 0; $total_plan = 0;
-        
-        foreach ($detalle_array as $row) {
-            $output['rows'][$i]['id'] = $row['id'];
-            $output['rows'][$i]['cell'] = array($row['iditem'],
-                $row['descripcionitem'], $row['descripcionunidadmedida'], 
-                $row['preciounitario'], $row['cantidadPedido'], $row['total']);
-            $total_plan += $row['total'];
-            ++$i;
-        }
-
-        $output['userdata']['total'] = number_format($total_plan, 2, '.', ',');
-
-        return new Response(json_encode($output), 200, array('Content-Type' => 'application/json'));
-    }
 }
