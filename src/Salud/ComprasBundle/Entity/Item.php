@@ -249,4 +249,8 @@ class Item
     {
         return $this->idUnidadMedida;
     }
+    
+    public function __toString() {
+        return $this->descripcionitem;
+    }
 }

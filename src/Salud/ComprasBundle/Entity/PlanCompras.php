@@ -399,4 +399,8 @@ class PlanCompras
     {
         return $this->idUnidadSolicitante;
     }
+    
+    public function __toString() {
+        return $this->numeroplan.'/'.$this->idPeriodoFiscal;
+    }
 }
