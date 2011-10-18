@@ -35,7 +35,9 @@ Gesti&oacute;n de Compras Institucional
         {% endif %}
 
         {% block content_header %}
-            {% include 'SaludComprasBundle::menu.html.twig' %}       
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                {% include 'SaludComprasBundle::menu.html.twig' %}
+            {% endif %}            
             <div style="clear: both"></div>
         {% endblock %}
 

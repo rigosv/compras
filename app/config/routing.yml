@@ -1,3 +1,7 @@
+_home:
+    pattern:  /
+    defaults: { _controller: SaludComprasBundle:Default:index }
+    
 SaludComprasBundle:
     resource: "@SaludComprasBundle/Controller/"
     type:     annotation

@@ -4,12 +4,14 @@ security:
     fos_userbundle:
       id: fos_user.user_manager
   firewalls:
+    login_firewall:
+        pattern:    ^/login$
+        anonymous:  ~
     main:
       pattern: ^/
       form_login:
         provider: fos_userbundle
       logout: true
-      anonymous: rue
     
   access_control:
     - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }

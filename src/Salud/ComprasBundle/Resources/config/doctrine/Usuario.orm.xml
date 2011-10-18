@@ -5,24 +5,6 @@
     <id name="id" type="integer" column="id">
       <generator strategy="SEQUENCE"/>
     </id>
-    <field name="estaactivo" type="boolean" column="estaactivo"/>
-    <field name="email" type="string" column="email" length="150"/>
-    <field name="username" type="string" column="username" length="255"/>
-    <field name="usernameCanonical" type="string" column="username_canonical" length="255"/>
-    <field name="emailCanonical" type="string" column="email_canonical" length="255"/>
-    <field name="enabled" type="boolean" column="enabled"/>
-    <field name="algorithm" type="string" column="algorithm" length="255"/>
-    <field name="salt" type="string" column="salt" length="255"/>
-    <field name="password" type="string" column="password" length="255"/>
-    <field name="lastLogin" type="datetime" column="last_login"/>
-    <field name="locked" type="boolean" column="locked"/>
-    <field name="expired" type="boolean" column="expired"/>
-    <field name="expiresAt" type="datetime" column="expires_at"/>
-    <field name="confirmationToken" type="string" column="confirmation_token" length="255"/>
-    <field name="passwordRequestedAt" type="datetime" column="password_requested_at"/>
-    <field name="roles" type="array" column="roles"/>
-    <field name="credentialsExpired" type="boolean" column="credentials_expired"/>
-    <field name="credentialsExpireAt" type="datetime" column="credentials_expire_at"/>
     <many-to-one field="idPerfilUsuario" target-entity="PerfilUsuario" orphan-removal="">
       <join-columns>
         <join-column name="id_perfil_usuario" referenced-column-name="id"/>

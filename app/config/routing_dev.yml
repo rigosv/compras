@@ -1,3 +1,6 @@
+_main:
+    resource: routing.yml
+
 _welcome:
     pattern:  /
     defaults: { _controller: AcmeDemoBundle:Welcome:index }
@@ -27,5 +30,3 @@ _configurator:
     resource: "@SensioDistributionBundle/Resources/config/routing/webconfigurator.xml"
     prefix:   /_configurator
 
-_main:
-    resource: routing.yml
