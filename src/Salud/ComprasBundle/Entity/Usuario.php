@@ -3,11 +3,12 @@
 namespace Salud\ComprasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Entity\User as BaseUser;
 
 /**
  * Salud\ComprasBundle\Entity\Usuario
  */
-class Usuario
+class Usuario extends BaseUser
 {
     /**
      * @var boolean $estaactivo
@@ -102,7 +103,7 @@ class Usuario
     /**
      * @var integer $id
      */
-    private $id;
+    protected $id;
 
     /**
      * @var Salud\ComprasBundle\Entity\PerfilUsuario
