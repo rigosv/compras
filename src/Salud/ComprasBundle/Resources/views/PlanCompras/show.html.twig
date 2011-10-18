@@ -3,16 +3,28 @@
 
 {% block javascripts %}
     {{ parent() }}
-    <script type="text/javascript" src="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/js/i18n/grid.locale-es.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/js/jquery.jqGrid.min.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('bundles/jquery/jQueryUI/js/jquery-ui-1.8.16.custom.min.js') }}" ></script>
-    <script type="text/javascript" src="{{ asset('bundles/saludcompras/js/PlanCompras/detalle.js') }}" ></script>
+    <script type="text/javascript" 
+	  src="{{asset('bundles/jquery/jquery.jqGrid-4.2.0/js/i18n/grid.locale-es.js')}}">
+    </script>
+    <script type="text/javascript" 
+	  src="{{asset('bundles/jquery/jquery.jqGrid-4.2.0/js/jquery.jqGrid.min.js')}}" >
+    </script>
+    <script type="text/javascript" 
+	  src="{{asset('bundles/jquery/jQueryUI/js/jquery-ui-1.8.16.custom.min.js')}}">
+    </script>
+    <script type="text/javascript" 					   
+        src="{{ asset('bundles/saludcompras/js/PlanCompras/detalle.js') }}" >   
+    </script>
 {% endblock %}
 
 {% block stylesheets%}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/jquery/jquery.jqGrid-4.2.0/css/ui.jqgrid.css')}}" type="text/css" media="all" ></link>
-    <link rel="stylesheet" href="{{ asset('bundles/jquery/jQueryUI/css/redmond/jquery-ui-1.8.16.custom.css')}}" type="text/css" media="all" ></link>
+    <link rel="stylesheet"  type="text/css" media="all"
+		href="{{asset('bundles/jquery/jquery.jqGrid-4.2.0/css/ui.jqgrid.css')}}">
+	</link>
+    <link rel="stylesheet"  type="text/css" media="all" 
+		href="{{asset('bundles/jquery/jQueryUI/css/redmond/jquery-ui-1.8.16.custom.css')}}" >
+	</link>
 {% endblock %}
 
 {% block content %} 
@@ -58,40 +70,8 @@
         </td> 
     </tr> 
 </table> 
-<table id="detalle_plan">
-    <thead>
-        <TR>
-            <TH>id</TH>
-            <TH>Producto</TH>
-            <TH>Unidad Medida</TH>
-            <TH>Precio Unitario</TH>
-            <TH>Cantidad</TH>
-            <TH>Total</TH>
-        </TR>
-    </thead>
-    <tbody>
-    {% set total = 0 %}
-    {% for linea in detalle%}
-        <TR >
-            <TD>{{linea.id}}</TD>
-            <TD>{{linea.descripcionitem}}</TD>
-            <TD>{{linea.descripcionunidadmedida}}</TD>
-            <TD>{{linea.preciounitario}}</TD>
-            <TD>{{linea.cantidadPedido}}</TD>
-            <TD>{{linea.total}}</TD>
-        </TR>
-        {% set total = total + linea.total %}
-    {% endfor %}
-    </tbody>
-</table>
-<input type='hidden' value='{{total}}' id='total' />
+<table id="detalle_plan"><tr><td/></tr></table> 
 <div id='pager' ></div>
-<DIV id="botones" >
-   <BUTTON id="add_button">Agregar</button>
-   <BUTTON id="edit_button">Editar</button>
-   <BUTTON id="delete_button">Borrar</button>
-</div>
-
 <div id='data_control'>
     <input type="hidden" value="{{front_controller}}" name="front_controller" id="front_controller" />
     <input type="hidden" value="{{entity.id}}" name="idPlan" id="id_plan" />
